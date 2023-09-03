@@ -1,6 +1,9 @@
 import './globals.css'
 import './styles/bootstrap.css'
 import './styles/w3.css'
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 import { REM } from 'next/font/google'
 
 //components
