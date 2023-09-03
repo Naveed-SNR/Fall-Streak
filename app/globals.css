@@ -1,0 +1,47 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+ */
+
+
+       /* Full height image header */
+       /* .bgimg-1 {
+        background-position: center;
+        background-size: cover;
+        background-image: url("./src/assets/images/background.webp");
+        min-height: 100%;
+      } */
+  
+      /* Add this new CSS class */
+      .aspect-ratio {
+        position: relative;
+        overflow: hidden;
+      }
+  
+      .aspect-ratio img {
+        width: 100%;
+        height: auto;
+      }
+  
+      .w3-bar .w3-button {
+        padding: 16px;
+      }
+  
+      nav {
+        background-color: #ffffff9c;
+         backdrop-filter:  blur(4px);
+      }
+  
+      nav.w3-sidebar {
+        background-color: #ffffff9c;
+        backdrop-filter: blur(4px);
+      }
+  
+      .animate {
+              transition: transform 0.2s;
+          }
+  
+          .animate:hover {
+              transform: scale(1.2);
+          }
+  
