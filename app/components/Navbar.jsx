@@ -27,9 +27,9 @@ export default function Navbar() {
                             <FontAwesomeIcon icon={faImages} style={{ fontSize: '1rem' }} className="me-2" /> GALLERY
                         </Link> 
                         
-                        <Link href="/" className="w3-bar-item w3-button">
+                        <a href="#packages" className="w3-bar-item w3-button">
                             <FontAwesomeIcon icon={faTh} style={{ fontSize: '1rem' }} className="me-2" /> PACKAGES
-                        </Link>
+                        </a>
                         <Link href="/" className="w3-bar-item w3-button">
                             <FontAwesomeIcon icon={faEnvelope} style={{ display: 'inline' }} className="me-2" /> CONTACT
                         </Link>

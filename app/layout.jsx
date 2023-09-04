@@ -8,6 +8,7 @@ import { REM } from 'next/font/google'
 
 //components
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 const rem = REM({ subsets: ['latin'] })
 
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
       <body className={rem.className}>
         <Navbar />
         {children}
+        <Footer />
         </body>
     </html>
   )
