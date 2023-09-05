@@ -1,9 +1,9 @@
 import Image from "next/image";
 const imagePaths = [
-  'images/cards/Card1.webp',
-  'images/cards/Card2.webp',
-  'images/cards/Card3.webp',
-  'images/cards/Card4.webp',
+  '/images/cards/Card1.webp',
+  '/images/cards/Card2.webp',
+  '/images/cards/Card3.webp',
+  '/images/cards/Card4.webp',
   // Add more image file names as needed
 ];
 
@@ -16,12 +16,17 @@ export default function Highlights() {
         {imagePaths.map((imagePath, index) => (
           <div className="w3-col l3 m6 w3-margin-bottom" key={index}>
             <div className="w3-card">
-              <img
+              <div style={{ width: '100%', height: '481px', position: 'relative'}}>
+              <Image
                 src={`${imagePath}`} // Adjust the path to your images
                 className="img-fluid"
                 alt={`Image ${index}`}
-                style={{ width: '100%', height: '481px' }}
+                fill
+                objectFit="fit"
+                sizes="100vw"
               />
+              </div>
+
             </div>
           </div>
         ))}
