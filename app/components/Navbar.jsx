@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Logo from '../../public/Logo.svg'
+import Logo from '../../public/images/logo/Logo.svg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faImages, faTh, faEnvelope } from "@fortawesome/free-solid-svg-icons"; // Import the specific icons you need
+import { faImage, faTh, faEnvelope } from "@fortawesome/free-solid-svg-icons"; // Import the specific icons you need
 
 export default function Navbar() {
     return (
@@ -24,7 +24,7 @@ export default function Navbar() {
                         <Link href="/#about" className="w3-bar-item w3-button me-2">ABOUT</Link>
                         
                         <Link href="/gallery" className="w3-bar-item w3-button">
-                            <FontAwesomeIcon icon={faImages} style={{ fontSize: '1rem' }} className="me-2" /> GALLERY
+                            <FontAwesomeIcon icon={faImage} style={{ fontSize: '1rem' }} className="me-2" /> GALLERY
                         </Link> 
                         
                         <Link href="/#packages" className="w3-bar-item w3-button">

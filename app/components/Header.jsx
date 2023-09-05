@@ -1,5 +1,9 @@
 import Image from "next/image"
-import background from "../../public/images/background.webp"
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookSquare, faInstagram, faSnapchat, faPinterestP, faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
+import background from "../../public/images/background/background.webp"
 
 const headerStyle = {
   backgroundImage: `url(${background.src})`, // Use the imported background image
@@ -20,15 +24,27 @@ export default function Header () {
         <span className="w3-jumbo w3-hide-small fw-medium">Journey Through Timeless Beauty</span><br />
         <span className="w3-xxlarge w3-hide-large w3-hide-medium fw-semibold fs-xl-1">Journey Through Timeless Beauty</span><br />
         <span className="w3-xxlarge">Craft Unforgettable Memories In Kashmir</span>
-        <p><a href="#packages" className="w3-button w3-white w3-round w3-large w3-margin-top w3-hover-opacity-off">Book Your Trip</a></p>
+        <p><Link href="/#packages" className="w3-button w3-white w3-round w3-large w3-margin-top w3-hover-opacity-off">Book Your Trip</Link></p>
       </div>
       <div className="w3-display-bottomleft ms-3 mb-4 me-2 d-flex w3-text-white w3-large" style={{ width: '11', padding: '48px', justifyContent: 'space-between' }}>
-        <i className="fa fa-facebook-official w3-hover-opacity me-2"></i>
-        <i className="fa fa-instagram w3-hover-opacity me-2"></i>
-        <i className="fa fa-snapchat w3-hover-opacity me-2"></i>
-        <i className="fa fa-pinterest-p w3-hover-opacity me-2"></i>
-        <i className="fa fa-twitter w3-hover-opacity me-2"></i>
-        <i className="fa fa-linkedin w3-hover-opacity me-2"></i>
+        <a href="#" className="w3-hover-opacity">
+          <FontAwesomeIcon icon={faFacebookSquare} className="p-1 py-2"/>
+        </a>
+        <a href="#" className="w3-hover-opacity">
+          <FontAwesomeIcon icon={faInstagram} className="p-1 py-2"/>
+        </a>
+        <a href="#" className="w3-hover-opacity">
+          <FontAwesomeIcon icon={faSnapchat} className="p-1 py-2"/>
+        </a>
+        <a href="#" className="w3-hover-opacity">
+          <FontAwesomeIcon icon={faPinterestP} className="p-1 py-2"/>
+        </a>
+        <a href="#" className="w3-hover-opacity">
+          <FontAwesomeIcon icon={faTwitter} className="p-1 py-2"/>
+        </a>
+        <a href="#" className="w3-hover-opacity">
+          <FontAwesomeIcon icon={faLinkedin} className="p-1 py-2"/>
+        </a>
       </div>
     </header>
   );

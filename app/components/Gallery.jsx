@@ -1,4 +1,16 @@
+"use client"
 import Image from "next/image";
+const imagePaths = [
+  '/images/gallery/Gallery1.webp',
+  '/images/gallery/Gallery2.webp',
+  '/images/gallery/Gallery3.webp',
+  '/images/gallery/Gallery4.webp',
+  '/images/gallery/Gallery5.webp',
+  '/images/gallery/Gallery6.webp',
+  '/images/gallery/Gallery7.webp',
+  '/images/gallery/Gallery8.webp',
+  // Add more image file names as needed
+];
 
 // // Modal Image Gallery
 // export function onClick(element) {
@@ -15,49 +27,110 @@ export default function Gallery () {
         <h3 className="w3-center">GALLERY</h3>
         <p className="w3-center w3-large">Lorem ipsum dolor sit amet consectetur  adipisicing elit. Magnam, at nulla!</p>
 
-        <div className="w3-row-padding" style={{ marginTop: '64px' }}>
-          <div className="w3-col l3 m6 mt-2">
-            <img src="../../public/images/Gallery1.webp" className="w3-round  img-fluid w3-hover-opacity" style={{ width: '100%', height: '300px' }}   alt="A microphone"   />
-          </div>
-          <div className="w3-col l3 m6 mt-2">
-            <img src="./src/assets/images/Gallery2.webp" className="w3-round  img-fluid w3-hover-opacity" style={{ width: '100%', height: '300px' }}   alt="A phone"   />
-          </div>
-          <div className="w3-col l3 m6 mt-2">
-            <img src="./src/assets/images/Gallery3.webp" className="w3-round  img-fluid w3-hover-opacity" style={{ width: '100%', height: '300px' }}   alt="A drone"   />
-          </div>
-          <div className="w3-col l3 m6 mt-2">
-            <img src="./src/assets/images/Gallery4.webp" className="w3-round  img-fluid w3-hover-opacity" style={{ width: '100%', height: '300px' }}   alt="Soundbox"   />
+        <div className="row w3-section">
+              <div className="w3-col l3 m6 mt-2">
+                <div style={{ width: '100%', height: '300px', position: 'relative' }}>
+                  <Image className="w3-round  img-fluid w3-hover-opacity"
+                    alt="A phone"
+                    src={imagePaths[0]}
+                    fill
+                    objectFit="fit"
+                    sizes="100vw"     
+                  />
+                </div>
+              </div>
+              <div className="w3-col l3 m6 mt-2">
+                <div style={{ width: '100%', height: '300px', position: 'relative' }}>
+                  <Image className="w3-round  img-fluid w3-hover-opacity"
+                    alt="A phone"
+                    src={imagePaths[1]}
+                    fill
+                    objectFit="fit"
+                    sizes="100vw"     
+                  />
+                </div>
+              </div>
+              <div className="w3-col l3 m6 mt-2">
+                <div style={{ width: '100%', height: '300px', position: 'relative' }}>
+                  <Image className="w3-round  img-fluid w3-hover-opacity"
+                    alt="A phone"
+                    src={imagePaths[2]}
+                    fill
+                    objectFit="fit"
+                    sizes="100vw"     
+                  />
+                </div>
+              </div>
+              <div className="w3-col l3 m6 mt-2">
+                <div style={{ width: '100%', height: '300px', position: 'relative' }}>
+                  <Image className="w3-round  img-fluid w3-hover-opacity"
+                    alt="A phone"
+                    src={imagePaths[3]}
+                    fill
+                    objectFit="fit"
+                    sizes="100vw"     
+                  />
+                </div>
+              </div>
+              <div className="w3-col l3 m6 mt-2">
+                <div style={{ width: '100%', height: '300px', position: 'relative' }}>
+                  <Image className="w3-round  img-fluid w3-hover-opacity"
+                    alt="A phone"
+                    src={imagePaths[4]}
+                    fill
+                    objectFit="fit"
+                    sizes="100vw"     
+                  />
+                </div>
+              </div>
+              <div className="w3-col l3 m6 mt-2">
+                <div style={{ width: '100%', height: '300px', position: 'relative' }}>
+                  <Image className="w3-round  img-fluid w3-hover-opacity"
+                    alt="A phone"
+                    src={imagePaths[5]}
+                    fill
+                    objectFit="fit"
+                    sizes="100vw"     
+                  />
+                </div>
+              </div>
+              <div className="w3-col l3 m6 mt-2">
+                <div style={{ width: '100%', height: '300px', position: 'relative' }}>
+                  <Image className="w3-round  img-fluid w3-hover-opacity"
+                    alt="A phone"
+                    src={imagePaths[6]}
+                    fill
+                    objectFit="fit"
+                    sizes="100vw"     
+                  />
+                </div>
+              </div>
+              <div className="w3-col l3 m6 mt-2">
+                <div style={{ width: '100%', height: '300px', position: 'relative' }}>
+                  <Image className="w3-round  img-fluid w3-hover-opacity"
+                    alt="A phone"
+                    src={imagePaths[7]}
+                    fill
+                    objectFit="fit"
+                    sizes="100vw"     
+                  />
+                </div>
+              </div>
           </div>
         </div>
-
-        <div className="w3-row-padding w3-section">
-          <div className="w3-col l3 m6 mt-2">
-            <img src="./src/assets/images/Gallery5.webp" className="w3-round  img-fluid w3-hover-opacity" style={{ width: '100%', height: '300px' }}   alt="A tablet"   />
-          </div>
-          <div className="w3-col l3 m6 mt-2">
-            <img src="./src/assets/images/Gallery6.webp" className="w3-round  img-fluid w3-hover-opacity" style={{ width: '100%', height: '300px' }}   alt="A camera"   />
-          </div>
-          <div className="w3-col l3 m6 mt-2">
-            <img src="./src/assets/images/Gallery7.webp" className="w3-round  img-fluid w3-hover-opacity" style={{ width: '100%', height: '300px' }}   alt="A typewriter"   />
-          </div>
-          <div className="w3-col l3 m6 mt-2">
-            <img src="./src/assets/images/Gallery8.webp" className="w3-round  img-fluid w3-hover-opacity" style={{ width: '100%', height: '300px' }}   alt="A tableturner"   />
-          </div>
+        
+        {/* <div id="modal01" className="w3-modal w3-black" onclick="this.style.display='none'">
+        <span className="w3-button w3-xxlarge w3-black w3-padding-large   w3-display-topright" title="Close Modal Image">X</span>
+        <div className="w3-modal-content w3-animate-zoom w3-center w3-transparent       w3-padding-64">
+          <img id="img01" className="w3-image" />
+          <p id="caption" className="w3-opacity w3-large"></p>
         </div>
-      </div>
-
-
-      {/* <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-        <span class="w3-button w3-xxlarge w3-black w3-padding-large   w3-display-topright" title="Close Modal Image">X</span>
-        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent       w3-padding-64">
-          <img id="img01" class="w3-image" />
-          <p id="caption" class="w3-opacity w3-large"></p>
-        </div>
-      </div> */}
-
+      </div>  */}
     </div>
+      
+
+
   );
 };
-
 
 

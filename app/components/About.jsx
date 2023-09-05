@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDesktop, faHeart, faDiamond, faCog } from "@fortawesome/free-solid-svg-icons";
+import { faDesktop, faHeart, faCog, faGem } from "@fortawesome/free-solid-svg-icons";
 
 export default function About() {
   return (
@@ -18,7 +18,7 @@ export default function About() {
           <p>Our travel experts take the time to understand your preferences, interests, and dreams. With this insight, we craft tailored itineraries that match your unique style of travel.</p>
         </div>
         <div className="w3-quarter">
-          <FontAwesomeIcon icon={faDiamond} className="w3-margin-bottom w3-jumbo" />
+          <FontAwesomeIcon icon={faGem} className="w3-margin-bottom w3-jumbo" />
           <p className="w3-large">Seamless Planning</p>
           <p>We've streamlined the process to ensure your journey is stress-free from start to finish. From booking flights and accommodations to arranging local transportation, our comprehensive services leave no detail overlooked.</p>
         </div>
