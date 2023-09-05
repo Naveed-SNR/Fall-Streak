@@ -10,7 +10,7 @@ export default function Navbar() {
             {/* Navbar (sit on top) */}
             <nav className="w3-top fw-medium">
                 <div className="w3-bar w3-card" id="myNavbar">
-                    <Link href="/" className="w3-bar-item w3-wide">
+                    <Link href="/#home" className="w3-bar-item w3-wide">
                         <Image className="animate"
                             src={Logo}
                             alt="Logo"
@@ -21,16 +21,16 @@ export default function Navbar() {
                         />
                     </Link>
                     <div className="w3-right w3-hide-small p-2 mt-1">
-                        <Link href="/" className="w3-bar-item w3-button me-2">ABOUT</Link>
+                        <Link href="/#about" className="w3-bar-item w3-button me-2">ABOUT</Link>
                         
                         <Link href="/gallery" className="w3-bar-item w3-button">
                             <FontAwesomeIcon icon={faImages} style={{ fontSize: '1rem' }} className="me-2" /> GALLERY
                         </Link> 
                         
-                        <a href="#packages" className="w3-bar-item w3-button">
+                        <Link href="/#packages" className="w3-bar-item w3-button">
                             <FontAwesomeIcon icon={faTh} style={{ fontSize: '1rem' }} className="me-2" /> PACKAGES
-                        </a>
-                        <Link href="/" className="w3-bar-item w3-button">
+                        </Link>
+                        <Link href="/#contact" className="w3-bar-item w3-button">
                             <FontAwesomeIcon icon={faEnvelope} style={{ display: 'inline' }} className="me-2" /> CONTACT
                         </Link>
                     </div>

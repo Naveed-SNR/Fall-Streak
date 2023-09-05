@@ -1,7 +1,22 @@
+import Image from "next/image"
+import background from "../../public/images/background.webp"
+
+const headerStyle = {
+  backgroundImage: `url(${background.src})`, // Use the imported background image
+  backgroundSize: 'cover', // Adjust the size as needed
+  backgroundRepeat: 'no-repeat', // Prevent image repetition
+  backgroundPosition: 'center', // Center the image
+  minHeight: '100vh', // Set a minimum height to cover the entire viewport
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
 export default function Header () {
   return (
-    <header className="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-      <div className="w3-display-left w3-text-white" style={{ padding: '48px' }}>
+    <header className="cover w3-display-container w3-grayscale-min" id="home" style={headerStyle} >
+      <div className="covertext w3-display-left w3-text-white" style={{ padding: '48px' }}>
         <span className="w3-jumbo w3-hide-small fw-medium">Journey Through Timeless Beauty</span><br />
         <span className="w3-xxlarge w3-hide-large w3-hide-medium fw-semibold fs-xl-1">Journey Through Timeless Beauty</span><br />
         <span className="w3-xxlarge">Craft Unforgettable Memories In Kashmir</span>
