@@ -1,4 +1,8 @@
+"use client"
+"use client"
 import Image from "next/image";
+import 'bootstrap'
+import { useState, useEffect } from "react";
 
 const imagePaths = [
   '/images/packages/Packages1.webp',
@@ -13,120 +17,193 @@ const imagePaths = [
 ];
 
 export default function Packages() {
+
+  const [packageNames, setPackageNames] = useState([]); // State for package names
+  const [selectedPackage, setSelectedPackage] = useState(""); // Default selected package
+
+
+
+  // Extract package names from the first li element of each ul
+  useEffect(() => {
+    const names = [];
+    const ulElements = document.querySelectorAll(".w3-ul"); // Assuming all ul elements have this class
+
+    ulElements.forEach((ul) => {
+      const liElement = ul.querySelector("li");
+      if (liElement) {
+        const packageName = liElement.textContent.trim();
+        names.push(packageName);
+      }
+    });
+
+    setPackageNames(names);
+  }, []);
+
+  // const packageSelect = document.getElementById('package-select');
+
+  // // Find the parent <ul> element of the clicked "Book Now" button
+  //   const ulElement = document.querySelector(".book-now-button").closest('ul');
+  
+  //   // Find the first <li> element within the <ul> (which contains the package name)
+  //   const packageElement = ulElement.querySelector('li:first-child');
+  
+  //   // Clear the existing dropdown options
+  //   packageSelect.innerHTML = '<option value="" disabled>Select a Package</option>';  
+  
+  // // Set the selected option to match the clicked "Book Now" button's package
+  //   packageSelect.value = packageElement.textContent.trim();
+      
+
   return (
-    <div className="w3-container card-container w3-center w3-dark-grey" style={{ padding: '128px 16px' }} id="packages">
-      <h3>PRICING</h3>
-      <p className="w3-large">Choose a pricing plan that fits your needs.</p>
-      <div className="row mx-2" style={{ marginTop: '64px' }}>
-        <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
-          <ul className="w3-ul w3-white w3-hover-shadow">
-            <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>4 Nights 5 Days with Gulmarg Night Stay</li>
-            <div style={{ width: '100%', height: '362px', position: 'relative'}}>
-              <Image src={imagePaths[0]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit" sizes="100vw" />
+    <div>
+        <div className="w3-container card-container w3-center w3-dark-grey" style={{ padding: '128px 16px' }}     id="packages">
+          <h3>PRICING</h3>
+          <p className="w3-large">Choose a pricing plan that fits your needs.</p>
+          <div className="row mx-2" style={{ marginTop: '64px' }}>
+            <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
+              <ul className="w3-ul w3-white w3-hover-shadow">
+                <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>4 Nights 5 Days with Gulmarg     Night Stay</li>
+                <div style={{ width: '100%', height: '362px', position: 'relative'}}>
+                  <Image src={imagePaths[0]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit"     sizes="100vw" />
+                </div>
+                <li className="w3-padding-16">
+                  <span>Srinagar | Gulmarg | Pahalgam</span>
+                </li>
+                <li className="w3-padding-16">
+                  <h2 className="w3-wide">&#8377; 15,750</h2>
+                  <span className="w3-opacity">Per person</span>
+                </li>
+                <li className="w3-light-grey w3-padding-16" style={{ borderRadius: '0' }}>
+                  <button className="w3-button w3-black w3-padding-large w3-round book-now-button" data-bs-toggle="modal" data-bs-target="#popupform">Book Now</button>
+                </li>
+              </ul>
             </div>
-            <li className="w3-padding-16">
-              <span>Srinagar | Gulmarg | Pahalgam</span>
-            </li>
-            <li className="w3-padding-16">
-              <h2 className="w3-wide">&#8377; 15,750</h2>
-              <span className="w3-opacity">Per person</span>
-            </li>
-            <li className="w3-light-grey w3-padding-16" style={{ borderRadius: '0' }}>
-              <button className="w3-button w3-black w3-padding-large w3-round">Book Now</button>
-            </li>
-          </ul>
+            <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
+              <ul className="w3-ul w3-white w3-hover-shadow">
+                <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>4 Nights 5 Days Group Package    From Srinagar</li>
+                <div style={{ width: '100%', height: '362px', position: 'relative'}}>
+                  <Image src={imagePaths[1]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit"     sizes="100vw" />
+                </div>
+                <li className="w3-padding-16">
+                  <span>Srinagar | Gulmarg | Sonamarg</span>
+                </li>
+                <li className="w3-padding-16">
+                  <h2 className="w3-wide">&#8377; 9999</h2>
+                  <span className="w3-opacity">Per person</span>
+                </li>
+                <li className="w3-light-grey w3-padding-16">
+                  <button className="w3-button w3-black w3-padding-large w3-round book-now-button" data-bs-toggle="modal" data-bs-target="#popupform">Book Now</button>
+                </li>
+              </ul>
+            </div>
+            <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
+              <ul className="w3-ul w3-white w3-hover-shadow">
+                <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>6 Nights 7 Days Honeymoon    Package</li>
+                <div style={{ width: '100%', height: '362px', position: 'relative'}}>
+                  <Image src={imagePaths[2]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit"     sizes="100vw" />
+                </div>
+                <li className="w3-padding-16">
+                  <span>Srinagar | Gulmarg | Pahalgam | Doodpathri</span>
+                </li>
+                <li className="w3-padding-16">
+                  <h2 className="w3-wide">&#8377; 39,500</h2>
+                  <span className="w3-opacity">Inc. Taxes</span>
+                </li>
+                <li className="w3-light-grey w3-padding-16">
+                  <button className="w3-button w3-black w3-padding-large w3-round book-now-button" data-bs-toggle="modal" data-bs-target="#popupform">Book Now</button>
+                </li>
+              </ul>
+            </div>
+            <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
+              <ul className="w3-ul w3-white w3-hover-shadow">
+                <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>4 Nights 5 Days with Gulmarg     Night Stay</li>
+                <div style={{ width: '100%', height: '362px', position: 'relative'}}>
+                  <Image src={imagePaths[3]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit"     sizes="100vw" />
+                </div>
+                <li className="w3-padding-16">
+                  <span>Srinagar | Gulmarg | Pahalgam</span>
+                </li>
+                <li className="w3-padding-16">
+                  <h2 className="w3-wide">&#8377; 15,750</h2>
+                  <span className="w3-opacity">Per person</span>
+                </li>
+                <li className="w3-light-grey w3-padding-16">
+                  <button className="w3-button w3-black w3-padding-large w3-round book-now-button" data-bs-toggle="modal" data-bs-target="#popupform">Book Now</button>
+                </li>
+              </ul>
+            </div>
+            <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
+              <ul className="w3-ul w3-white w3-hover-shadow">
+                <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>4 Nights 5 Days Group Package From Srinagar</li>
+                <div style={{ width: '100%', height: '362px', position: 'relative'}}>
+                  <Image src={imagePaths[4]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit"     sizes="100vw" />
+                </div>
+                <li className="w3-padding-16">
+                  <span>Srinagar | Gulmarg | Sonamarg</span>
+                </li>
+                <li className="w3-padding-16">
+                  <h2 className="w3-wide">&#8377; 9999</h2>
+                  <span className="w3-opacity">Per person</span>
+                </li>
+                <li className="w3-light-grey w3-padding-16">
+                  <button className="w3-button w3-black w3-padding-large w3-round book-now-button" data-bs-toggle="modal" data-bs-target="#popupform">Book Now</button>
+                </li>
+              </ul>
+            </div>
+            <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
+              <ul className="w3-ul w3-white w3-hover-shadow">
+                <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>6 Nights 7 Days Honeymoon    Package</li>
+                <div style={{ width: '100%', height: '362px', position: 'relative'}}>
+                  <Image src={imagePaths[5]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit"     sizes="100vw" />
+                </div>
+                <li className="w3-padding-16">
+                  <span>Srinagar | Gulmarg | Pahalgam | Doodpathri</span>
+                </li>
+                <li className="w3-padding-16">
+                  <h2 className="w3-wide">&#8377; 39,500</h2>
+                  <span className="w3-opacity">Inc. Taxes</span>
+                </li>
+                <li className="w3-light-grey w3-padding-16">
+                  <button className="w3-button w3-black w3-padding-large w3-round book-now-button" data-bs-toggle="modal" data-bs-target="popupform">Book Now</button>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
-          <ul className="w3-ul w3-white w3-hover-shadow">
-            <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>4 Nights 5 Days Group Package From Srinagar</li>
-            <div style={{ width: '100%', height: '362px', position: 'relative'}}>
-              <Image src={imagePaths[1]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit" sizes="100vw" />
-            </div>
-            <li className="w3-padding-16">
-              <span>Srinagar | Gulmarg | Sonamarg</span>
-            </li>
-            <li className="w3-padding-16">
-              <h2 className="w3-wide">&#8377; 9999</h2>
-              <span className="w3-opacity">Per person</span>
-            </li>
-            <li className="w3-light-grey w3-padding-16">
-              <button className="w3-button w3-black w3-padding-large w3-round">Book Now</button>
-            </li>
-          </ul>
-        </div>
-        <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
-          <ul className="w3-ul w3-white w3-hover-shadow">
-            <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>6 Nights 7 Days Honeymoon Package</li>
-            <div style={{ width: '100%', height: '362px', position: 'relative'}}>
-              <Image src={imagePaths[2]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit" sizes="100vw" />
-            </div>
-            <li className="w3-padding-16">
-              <span>Srinagar | Gulmarg | Pahalgam | Doodpathri</span>
-            </li>
-            <li className="w3-padding-16">
-              <h2 className="w3-wide">&#8377; 39,500</h2>
-              <span className="w3-opacity">Inc. Taxes</span>
-            </li>
-            <li className="w3-light-grey w3-padding-16">
-              <button className="w3-button w3-black w3-padding-large w3-round">Book Now</button>
-            </li>
-          </ul>
-        </div>
-        <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
-          <ul className="w3-ul w3-white w3-hover-shadow">
-            <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>4 Nights 5 Days with Gulmarg Night Stay</li>
-            <div style={{ width: '100%', height: '362px', position: 'relative'}}>
-              <Image src={imagePaths[3]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit" sizes="100vw" />
-            </div>
-            <li className="w3-padding-16">
-              <span>Srinagar | Gulmarg | Pahalgam</span>
-            </li>
-            <li className="w3-padding-16">
-              <h2 className="w3-wide">&#8377; 15,750</h2>
-              <span className="w3-opacity">Per person</span>
-            </li>
-            <li className="w3-light-grey w3-padding-16">
-              <button className="w3-button w3-black w3-padding-large w3-round">Book Now</button>
-            </li>
-          </ul>
-        </div>
-        <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
-          <ul className="w3-ul w3-white w3-hover-shadow">
-            <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>4 Nights 5 Days Group Package From Srinagar</li>
-            <div style={{ width: '100%', height: '362px', position: 'relative'}}>
-              <Image src={imagePaths[4]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit" sizes="100vw" />
-            </div>
-            <li className="w3-padding-16">
-              <span>Srinagar | Gulmarg | Sonamarg</span>
-            </li>
-            <li className="w3-padding-16">
-              <h2 className="w3-wide">&#8377; 9999</h2>
-              <span className="w3-opacity">Per person</span>
-            </li>
-            <li className="w3-light-grey w3-padding-16">
-              <button className="w3-button w3-black w3-padding-large w3-round">Book Now</button>
-            </li>
-          </ul>
-        </div>
-        <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
-          <ul className="w3-ul w3-white w3-hover-shadow">
-            <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>6 Nights 7 Days Honeymoon Package</li>
-            <div style={{ width: '100%', height: '362px', position: 'relative'}}>
-              <Image src={imagePaths[5]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit" sizes="100vw" />
-            </div>
-            <li className="w3-padding-16">
-              <span>Srinagar | Gulmarg | Pahalgam | Doodpathri</span>
-            </li>
-            <li className="w3-padding-16">
-              <h2 className="w3-wide">&#8377; 39,500</h2>
-              <span className="w3-opacity">Inc. Taxes</span>
-            </li>
-            <li className="w3-light-grey w3-padding-16">
-              <button className="w3-button w3-black w3-padding-large w3-round">Book Now</button>
-            </li>
-          </ul>
+      
+      <div className="modal fade" id="popupform" tabIndex="-1" aria-labelledby="popupform Label" aria-hidden="true">
+      <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-content">
+          <div className="modal-header bg-black text-white">
+            <h1 className="modal-title fs-4 mb-1" id="exampleModalLabel">Book You Package</h1>
+            <button type="button" className="w3-black w3-border-0" data-bs-dismiss="modal" aria-label="Close">X</button>
+          </div>
+          <div className="modal-body">
+            <form id="booking-form" className="form m-4">
+              <label className="form-label mt-2" htmlFor="package-select">Select a Package:</label>
+              <select className="form-select" id="package-select" name="package" value={selectedPackage} onChange={(e) => setSelectedPackage(e.target.value)}>
+                {packageNames.map((packageName, index) => (
+                  <option key={index} value={packageName}>
+                    {packageName}
+                  </option>
+                ))}
+              </select>
+              <label className="form-label mt-2" htmlFor="name">Name:</label>
+              <input className="form-control" type="text" id="name" name="name" required />
+              <label className="form-label mt-2" htmlFor="phone">Phone Number:</label>
+              <input className="form-control" type="tel" id="phone" name="phone" required />
+              <label className="form-label mt-2" htmlFor="email">Email:</label>
+              <input className="form-control" type="email" id="email" name="email" required />
+              <div className="modal-footer justify-content-center">
+                <button className="w3-button w3-black w3-round px-4 py- mt-4" type="submit">Submit</button>
+              </div>
+            </form>
+          </div>
+
         </div>
       </div>
+    </div>
+
     </div>
   );
 }
