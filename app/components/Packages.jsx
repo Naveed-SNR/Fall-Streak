@@ -1,5 +1,4 @@
 "use client"
-"use client"
 import Image from "next/image";
 import 'bootstrap'
 import { useState, useEffect } from "react";
@@ -22,8 +21,15 @@ export default function Packages() {
   const [selectedPackage, setSelectedPackage] = useState(""); // Default selected package
 
 
+  // //Use this to load pacakages statically; array needs to be manualyy updated in case of changes [Comment out the hook for package names if you want to use this]
+  // const packageNames = [
+  //   "4 Nights 5 Days with Gulmarg Night Stay",
+  //   "4 Nights 5 Days Group Package From Srinagar",
+  //   "6 Nights 7 Days Honeymoon Package",
+  //   // Add more package names as needed
+  // ];
 
-  // Extract package names from the first li element of each ul
+  // Extract package names from the first li element of each ul. Only edit html to update packages, no need to update anything here
   useEffect(() => {
     const names = [];
     const ulElements = document.querySelectorAll(".w3-ul"); // Assuming all ul elements have this class
@@ -39,20 +45,18 @@ export default function Packages() {
     setPackageNames(names);
   }, []);
 
-  // const packageSelect = document.getElementById('package-select');
+    document.querySelectorAll('.book-now-button').forEach((button) => {
+    button.addEventListener('click', () => handleBookNowClick(button));
+  });
+  
+  const handleBookNowClick = (button) => {
 
-  // // Find the parent <ul> element of the clicked "Book Now" button
-  //   const ulElement = document.querySelector(".book-now-button").closest('ul');
-  
-  //   // Find the first <li> element within the <ul> (which contains the package name)
-  //   const packageElement = ulElement.querySelector('li:first-child');
-  
-  //   // Clear the existing dropdown options
-  //   packageSelect.innerHTML = '<option value="" disabled>Select a Package</option>';  
-  
-  // // Set the selected option to match the clicked "Book Now" button's package
-  //   packageSelect.value = packageElement.textContent.trim();
-      
+    // Find the parent <ul> element of the clicked button
+    const parentUl = button.closest("ul");
+    const packageElement = parentUl.querySelector('li:first-child');
+
+    setSelectedPackage(packageElement.textContent.trim());
+  };
 
   return (
     <div>
@@ -80,7 +84,7 @@ export default function Packages() {
             </div>
             <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
               <ul className="w3-ul w3-white w3-hover-shadow">
-                <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>4 Nights 5 Days Group Package    From Srinagar</li>
+                <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>4 Nights 5 Days Group Package From Srinagar</li>
                 <div style={{ width: '100%', height: '362px', position: 'relative'}}>
                   <Image src={imagePaths[1]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit"     sizes="100vw" />
                 </div>
@@ -164,7 +168,7 @@ export default function Packages() {
                   <span className="w3-opacity">Inc. Taxes</span>
                 </li>
                 <li className="w3-light-grey w3-padding-16">
-                  <button className="w3-button w3-black w3-padding-large w3-round book-now-button" data-bs-toggle="modal" data-bs-target="popupform">Book Now</button>
+                  <button className="w3-button w3-black w3-padding-large w3-round book-now-button" data-bs-toggle="modal" data-bs-target="#popupform">Book Now</button>
                 </li>
               </ul>
             </div>
