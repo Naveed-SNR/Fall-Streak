@@ -18,15 +18,12 @@
         padding: 16px;
       }
   
-      nav {
+      nav, div.offcanvas-header, div.offcanvas, div.offcanvas-body {
         background-color: #ffffff9c;
          backdrop-filter:  blur(4px);
       }
   
-      nav.w3-sidebar {
-        background-color: #ffffff9c;
-        backdrop-filter: blur(4px);
-      }
+
   
       .animate {
               transition: transform 0.2s;
