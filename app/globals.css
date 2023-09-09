@@ -20,7 +20,7 @@
   
       nav, div.offcanvas-header, div.offcanvas, div.offcanvas-body {
         background-color: #ffffff9c;
-         backdrop-filter:  blur(4px);
+        backdrop-filter:  blur(4px);
       }
   
 

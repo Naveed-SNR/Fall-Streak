@@ -63,7 +63,7 @@ export default function Packages() {
         <div className="w3-container card-container w3-center w3-dark-grey" style={{ padding: '128px 16px' }}     id="packages">
           <h3>PRICING</h3>
           <p className="w3-large">Choose a pricing plan that fits your needs.</p>
-          <div className="row mx-2" style={{ marginTop: '64px' }}>
+          <div className="row mx-2 justify-content-center" style={{ marginTop: '64px' }}>
             <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
               <ul className="w3-ul w3-white w3-hover-shadow">
                 <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>4 Nights 5 Days with Gulmarg     Night Stay</li>

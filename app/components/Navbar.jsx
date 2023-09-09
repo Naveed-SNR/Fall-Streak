@@ -37,31 +37,25 @@ export default function Navbar() {
                             <FontAwesomeIcon icon={faEnvelope} style={{ display: 'inline' }} className="me-2" /> CONTACT
                         </Link>
                         
-                        <button class="btn d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        <button id="#navbarToggler" className="btn mt-1 d-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-labelledby="navbarToggler" aria-controls="offcanvasRight">
                         <FontAwesomeIcon icon={faBars} size="xl" style={{ display: 'inline', right: '0px' }} className="me-2" /> 
                     </button>
                     </div>
-
-
-
                 </div>
-
-
-
-      
             </nav>
             
             <div className="d-lg-none">
                 
-                <button>off</button>
-                <div class="w3-round-medium offcanvas offcanvas-end bg-transparent" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                  <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
-                    <button type="button" class="btn-close btn-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <div className="w3-round-medium offcanvas offcanvas-end bg-transparent" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  
+                  <div className="offcanvas-body fw-regular">
+                  <div className="d-flex justify-content-between">
+                    <h5 className="d-inline ms-3" id="offcanvasRightLabel">Close</h5>
+                    <button type="button" className="btn-close btn-dark mt-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                   </div>
-                  <div class="offcanvas-body fw-medium">
                   <div className="w3-bar-block mt-1">
-                        <Link href="/#about" className="w3-bar-item w3-button me-2" >ABOUT</Link>
+                    
+                        <Link href="/#about" className="w3-bar-item w3-button " >ABOUT</Link>
                         
                         <Link href="/gallery" className="w3-bar-item w3-button" >
                             <FontAwesomeIcon icon={faImage} style={{ fontSize: '1rem' }} className="me-2" /> GALLERY

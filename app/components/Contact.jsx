@@ -1,12 +1,15 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot, faPaperPlane, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+
 export default function Contact () {
   return (
     <div className="w3-container w3-light-grey" style={{ padding: '128px 16px' }} id="contact">
       <h3 className="w3-center">CONTACT</h3>
       <p className="w3-center w3-large">Let's get in touch. Send us a message:</p>
       <div style={{ marginTop: '48px' }}>
-        <p><i className="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Srinagar, IN</p>
-        <p><i className="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
-        <p><i className="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"></i> Email: mail@mail.com</p>
+        <p><FontAwesomeIcon className="me-3" icon={faLocationDot} size="2xl" /> Srinagar, IN</p>
+        <p><FontAwesomeIcon className="me-3" icon={faPhone} size="2xl" /> Phone: +00 151515</p>
+        <p><FontAwesomeIcon className="me-3" icon={faEnvelope} size="2xl" /> Email: mail@mail.com</p>
         <br />
         <form action="/action_page.php" target="_blank">
           <p><input className="w3-input w3-border" type="text" placeholder="Name" required name="Name" /></p>
@@ -15,7 +18,7 @@ export default function Contact () {
           <p><input className="w3-input w3-border" type="text" placeholder="Message" required name="Message" /></p>
           <p>
             <button className="w3-button w3-black w3-round" type="submit">
-              <i className="fa fa-paper-plane"></i> SEND MESSAGE
+            <FontAwesomeIcon className="me-2" icon={faPaperPlane} size="xl" /> SEND MESSAGE
             </button>
           </p>
         </form>

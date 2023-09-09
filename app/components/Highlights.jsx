@@ -1,4 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGrip } from "@fortawesome/free-solid-svg-icons";
+
 const imagePaths = [
   '/images/cards/Card1.webp',
   '/images/cards/Card2.webp',
@@ -31,9 +35,9 @@ export default function Highlights() {
           </div>
         ))}
         <p className="w3-center">
-          <a href="#work" className="w3-button w3-black w3-round mt-4 p4">
-            <i className="fa fa-th"></i> View All
-          </a>
+          <Link href="/gallery" className="w3-button w3-black w3-round mt-4 p4">
+          <FontAwesomeIcon className="me-1" icon={faGrip} size="lg" /> View All
+          </Link>
         </p>
       </div>
     </div>
