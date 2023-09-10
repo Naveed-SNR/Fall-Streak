@@ -18,12 +18,20 @@
         padding: 16px;
       }
   
-      nav, div.offcanvas-header, div.offcanvas, div.offcanvas-body {
+      nav {
         background-color: #ffffff9c;
         backdrop-filter:  blur(4px);
       }
   
+      div.offcanvas-header, div.offcanvas, div.offcanvas-body {
+        background-color: #ffffff9c;
+        backdrop-filter:  blur(4px);
 
+      }
+
+      nav .navbar-toggler {
+        border: none;
+      }
   
       .animate {
               transition: transform 0.2s;
@@ -32,4 +40,6 @@
           .animate:hover {
               transform: scale(1.2);
           }
+
+          
   
