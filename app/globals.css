@@ -29,8 +29,17 @@
 
       }
 
-      nav .navbar-toggler {
+
+      div .w3-sidebar {
+        right: 0;
+        height: 100vh;
+        overflow: hidden;
+        background-color: #ffffff9c;
+        backdrop-filter:  blur(4px);
         border: none;
+        width: 54.2%;
+        margin: 4px 4px;
+        
       }
   
       .animate {

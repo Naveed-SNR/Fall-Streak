@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Logo from '../../public/images/logo/Logo.svg';
@@ -8,10 +8,15 @@ import { faImage, faTh, faEnvelope, faBars } from "@fortawesome/free-solid-svg-i
 import { Fade as Hamburger } from 'hamburger-react';
 
 export default function Navbar() {
+
+  const [sidebar, setSidebar] = useState(false)
+  const toggleSidebar=()=> setSidebar(!sidebar)
   return (
     <main>
-      <nav className="navbar navbar-expand-lg">
-          <Link href="/#home" className="w3-bar-item w3-wide">
+      <nav className="w3-top navbar-expand-lg w3-top">
+                 
+        <div className="w3-bar w3-card">
+        <Link href="/#home" className="w3-bar-item w3-wide">
             <Image
               className="animate"
               src={Logo}
@@ -22,41 +27,47 @@ export default function Navbar() {
               left={0}
             />
           </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <Hamburger direction="right" />
-          </button>
-        <div className="container-fluid">
-          <div className="collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link href="/#about" className="w3-bar-item w3-button me-2">ABOUT</Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/gallery" className="w3-bar-item w3-button">
+          <div className="w3-right mt-3" id="navbarSupportedContent">
+                <Link href="/#about" className="w3-bar-item w3-button me-2 d-none d-lg-flex">ABOUT</Link>
+
+                <Link href="/gallery" className="w3-bar-item w3-button d-none d-lg-flex">
                   <FontAwesomeIcon icon={faImage} style={{ fontSize: '1rem' }} className="me-2" /> GALLERY
                 </Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/#packages" className="w3-bar-item w3-button">
+
+                <Link href="/#packages" className="w3-bar-item w3-button d-none d-lg-flex">
                   <FontAwesomeIcon icon={faTh} style={{ fontSize: '1rem' }} className="me-2" /> PACKAGES
                 </Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/#contact" className="w3-bar-item w3-button">
+
+                <Link href="/#contact" className="w3-bar-item w3-button d-none d-lg-flex">
                   <FontAwesomeIcon icon={faEnvelope} style={{ display: 'inline' }} className="me-2" /> CONTACT
                 </Link>
-              </li>
-            </ul>
+                <div className="d-lg-none d-flex" onClick={toggleSidebar}>
+                  <Hamburger direction="right" />
+                </div>
           </div>
         </div>
+
+        {/* Sidebar */}
+        <div className={sidebar ? 'd-block' : 'd-none'}  >
+
+            <div className="w3-sidebar w3-bar-block w3-animate-right w3-round">
+            <Link href="/#about" className="w3-bar-item w3-button me-2">ABOUT</Link>
+              
+              <Link href="/gallery" className="w3-bar-item w3-button">
+                <FontAwesomeIcon icon={faImage} style={{ fontSize: '1rem' }} className="me-2" /> GALLERY
+              </Link>
+              
+              <Link href="/#packages" className="w3-bar-item w3-button">
+                <FontAwesomeIcon icon={faTh} style={{ fontSize: '1rem' }} className="me-2" /> PACKAGES
+              </Link>
+              
+              <Link href="/#contact" className="w3-bar-item w3-button">
+                <FontAwesomeIcon icon={faEnvelope} style={{ display: 'inline' }} className="me-2" /> CONTACT
+              </Link>
+
+            </div>
+
+      </div>
       </nav>
     </main>
   );
