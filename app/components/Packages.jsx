@@ -26,6 +26,9 @@ export default function Packages() {
   //   "4 Nights 5 Days with Gulmarg Night Stay",
   //   "4 Nights 5 Days Group Package From Srinagar",
   //   "6 Nights 7 Days Honeymoon Package",
+  //   "4 Nights 5 Days with Gulmarg Night Stay",
+  //   "4 Nights 5 Days Group Package From Srinagar",
+  //   "6 Nights 7 Days Honeymoon Package",
   //   // Add more package names as needed
   // ];
 
