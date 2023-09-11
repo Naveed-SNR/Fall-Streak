@@ -67,11 +67,11 @@ export default function Packages() {
           <h3>PRICING</h3>
           <p className="w3-large">Choose a pricing plan that fits your needs.</p>
           <div className="row mx-2 justify-content-center" style={{ marginTop: '64px' }}>
-            <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
-              <ul className="w3-ul w3-white w3-hover-shadow">
+            <div className="mt-4 " style={{ width: '481px' }}>
+              <ul className="w3-ul w3-round w3-white w3-hover-shadow">
                 <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>4 Nights 5 Days with Gulmarg     Night Stay</li>
                 <div style={{ width: '100%', height: '362px', position: 'relative'}}>
-                  <Image src={imagePaths[0]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit"     sizes="100vw" />
+                  <Image src={imagePaths[0]} alt="" className="img-fluid overflow-hidden aspect-ratio" fill objectFit="fit"     sizes="100vw" />
                 </div>
                 <li className="w3-padding-16">
                   <span>Srinagar | Gulmarg | Pahalgam</span>
@@ -85,11 +85,11 @@ export default function Packages() {
                 </li>
               </ul>
             </div>
-            <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
-              <ul className="w3-ul w3-white w3-hover-shadow">
+            <div className="mt-4 " style={{ width: '481px' }}>
+              <ul className="w3-ul w3-round w3-white w3-hover-shadow">
                 <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>4 Nights 5 Days Group Package From Srinagar</li>
                 <div style={{ width: '100%', height: '362px', position: 'relative'}}>
-                  <Image src={imagePaths[1]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit"     sizes="100vw" />
+                  <Image src={imagePaths[1]} alt="" className="img-fluid overflow-hidden aspect-ratio" fill objectFit="fit"     sizes="100vw" />
                 </div>
                 <li className="w3-padding-16">
                   <span>Srinagar | Gulmarg | Sonamarg</span>
@@ -103,11 +103,11 @@ export default function Packages() {
                 </li>
               </ul>
             </div>
-            <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
+            <div className="mt-4" style={{ width: '481px' }}>
               <ul className="w3-ul w3-white w3-hover-shadow">
                 <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>6 Nights 7 Days Honeymoon    Package</li>
                 <div style={{ width: '100%', height: '362px', position: 'relative'}}>
-                  <Image src={imagePaths[2]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit"     sizes="100vw" />
+                  <Image src={imagePaths[2]} alt="" className="img-fluid overflow-hidden aspect-ratio" fill objectFit="fit"     sizes="100vw" />
                 </div>
                 <li className="w3-padding-16">
                   <span>Srinagar | Gulmarg | Pahalgam | Doodpathri</span>
@@ -121,11 +121,11 @@ export default function Packages() {
                 </li>
               </ul>
             </div>
-            <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
-              <ul className="w3-ul w3-white w3-hover-shadow">
+            <div className="mt-4 " style={{ width: '481px' }}>
+              <ul className="w3-ul w3-round w3-white w3-hover-shadow">
                 <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>4 Nights 5 Days with Gulmarg     Night Stay</li>
                 <div style={{ width: '100%', height: '362px', position: 'relative'}}>
-                  <Image src={imagePaths[3]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit"     sizes="100vw" />
+                  <Image src={imagePaths[3]} alt="" className="img-fluid overflow-hidden aspect-ratio" fill objectFit="fit"     sizes="100vw" />
                 </div>
                 <li className="w3-padding-16">
                   <span>Srinagar | Gulmarg | Pahalgam</span>
@@ -139,11 +139,11 @@ export default function Packages() {
                 </li>
               </ul>
             </div>
-            <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
-              <ul className="w3-ul w3-white w3-hover-shadow">
+            <div className="mt-4 " style={{ width: '481px' }}>
+              <ul className="w3-ul w3-round w3-white w3-hover-shadow">
                 <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>4 Nights 5 Days Group Package From Srinagar</li>
                 <div style={{ width: '100%', height: '362px', position: 'relative'}}>
-                  <Image src={imagePaths[4]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit"     sizes="100vw" />
+                  <Image src={imagePaths[4]} alt="" className="img-fluid overflow-hidden aspect-ratio" fill objectFit="fit"     sizes="100vw" />
                 </div>
                 <li className="w3-padding-16">
                   <span>Srinagar | Gulmarg | Sonamarg</span>
@@ -157,11 +157,11 @@ export default function Packages() {
                 </li>
               </ul>
             </div>
-            <div className="col-sm-8 col-md-6 col-lg-4 mt-4">
-              <ul className="w3-ul w3-white w3-hover-shadow">
+            <div className="mt-4 " style={{ width: '481px' }}>
+              <ul className="w3-ul w3-round w3-white w3-hover-shadow">
                 <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>6 Nights 7 Days Honeymoon    Package</li>
                 <div style={{ width: '100%', height: '362px', position: 'relative'}}>
-                  <Image src={imagePaths[5]} alt="" className="img-fluid aspect-ratio" fill objectFit="fit"     sizes="100vw" />
+                  <Image src={imagePaths[5]} alt="" className="img-fluid overflow-hidden aspect-ratio" fill objectFit="fit"     sizes="100vw" />
                 </div>
                 <li className="w3-padding-16">
                   <span>Srinagar | Gulmarg | Pahalgam | Doodpathri</span>

@@ -27,10 +27,10 @@ export default function Gallery () {
         <h3 className="w3-center">GALLERY</h3>
         <p className="w3-center w3-large">Lorem ipsum dolor sit amet consectetur  adipisicing elit. Magnam, at nulla!</p>
 
-        <div className="row w3-section">
-              <div className="w3-col l3 m6 mt-2">
-                <div style={{ width: '100%', height: '300px', position: 'relative' }}>
-                  <Image className="w3-round  img-fluid w3-hover-opacity"
+        <div className="d-flex flex-wrap justify-content-center">
+              <div className="mt-2 mx-2">
+                <div style={{ width: '400px', height: '300px', position: 'relative' }}>
+                  <Image className="w3-round img-fluid w3-hover-opacity"
                     alt="A phone"
                     src={imagePaths[0]}
                     fill
@@ -39,8 +39,8 @@ export default function Gallery () {
                   />
                 </div>
               </div>
-              <div className="w3-col l3 m6 mt-2">
-                <div style={{ width: '100%', height: '300px', position: 'relative' }}>
+              <div className="mt-2 mx-2">
+                <div style={{ width: '400px', height: '300px', position: 'relative' }}>
                   <Image className="w3-round  img-fluid w3-hover-opacity"
                     alt="A phone"
                     src={imagePaths[1]}
@@ -50,8 +50,8 @@ export default function Gallery () {
                   />
                 </div>
               </div>
-              <div className="w3-col l3 m6 mt-2">
-                <div style={{ width: '100%', height: '300px', position: 'relative' }}>
+              <div className="mt-2 mx-2">
+                <div style={{ width: '400px', height: '300px', position: 'relative' }}>
                   <Image className="w3-round  img-fluid w3-hover-opacity"
                     alt="A phone"
                     src={imagePaths[2]}
@@ -61,8 +61,8 @@ export default function Gallery () {
                   />
                 </div>
               </div>
-              <div className="w3-col l3 m6 mt-2">
-                <div style={{ width: '100%', height: '300px', position: 'relative' }}>
+              <div className="mt-2 mx-2">
+                <div style={{ width: '400px', height: '300px', position: 'relative' }}>
                   <Image className="w3-round  img-fluid w3-hover-opacity"
                     alt="A phone"
                     src={imagePaths[3]}
@@ -72,8 +72,8 @@ export default function Gallery () {
                   />
                 </div>
               </div>
-              <div className="w3-col l3 m6 mt-2">
-                <div style={{ width: '100%', height: '300px', position: 'relative' }}>
+              <div className="mt-2 mx-2">
+                <div style={{ width: '400px', height: '300px', position: 'relative' }}>
                   <Image className="w3-round  img-fluid w3-hover-opacity"
                     alt="A phone"
                     src={imagePaths[4]}
@@ -83,8 +83,8 @@ export default function Gallery () {
                   />
                 </div>
               </div>
-              <div className="w3-col l3 m6 mt-2">
-                <div style={{ width: '100%', height: '300px', position: 'relative' }}>
+              <div className="mt-2 mx-2">
+                <div style={{ width: '400px', height: '300px', position: 'relative' }}>
                   <Image className="w3-round  img-fluid w3-hover-opacity"
                     alt="A phone"
                     src={imagePaths[5]}
@@ -94,8 +94,8 @@ export default function Gallery () {
                   />
                 </div>
               </div>
-              <div className="w3-col l3 m6 mt-2">
-                <div style={{ width: '100%', height: '300px', position: 'relative' }}>
+              <div className="mt-2 mx-2">
+                <div style={{ width: '400px', height: '300px', position: 'relative' }}>
                   <Image className="w3-round  img-fluid w3-hover-opacity"
                     alt="A phone"
                     src={imagePaths[6]}
@@ -105,8 +105,8 @@ export default function Gallery () {
                   />
                 </div>
               </div>
-              <div className="w3-col l3 m6 mt-2">
-                <div style={{ width: '100%', height: '300px', position: 'relative' }}>
+              <div className="mt-2 mx-2">
+                <div style={{ width: '400px', height: '300px', position: 'relative' }}>
                   <Image className="w3-round  img-fluid w3-hover-opacity"
                     alt="A phone"
                     src={imagePaths[7]}
