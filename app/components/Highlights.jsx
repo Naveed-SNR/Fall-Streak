@@ -20,7 +20,7 @@ export default function Highlights() {
         {imagePaths.map((imagePath, index) => (
 
 
-              <div className="mx-1" style={{ width: '362px', height: '481px', position: 'relative'}} key={index}>
+              <div className="mx-1 mt-3" style={{ width: '362px', height: '481px', position: 'relative'}} key={index}>
               <Image
                 src={`${imagePath}`} // Adjust the path to your images
                 className="img-fluid w3-round"

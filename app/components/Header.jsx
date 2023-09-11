@@ -27,24 +27,24 @@ export default function Header () {
         <p><Link href="/#packages" className="w3-button w3-white w3-round w3-large w3-margin-top w3-hover-opacity-off">Book Your Trip</Link></p>
       </div>
       <div className="w3-display-bottomleft ms-3 mb-4 me-2 d-flex w3-text-white w3-large" style={{ width: '11', padding: '48px', justifyContent: 'space-between' }}>
-        <a href="#" className="w3-hover-opacity">
+        <Link href="#" className="w3-hover-opacity" aria-label="social">
           <FontAwesomeIcon icon={faFacebookSquare} className="p-1 py-2"/>
-        </a>
-        <a href="#" className="w3-hover-opacity">
+        </Link>
+        <Link href="#" className="w3-hover-opacity" aria-label="social">
           <FontAwesomeIcon icon={faInstagram} className="p-1 py-2"/>
-        </a>
-        <a href="#" className="w3-hover-opacity">
+        </Link>
+        <Link href="#" className="w3-hover-opacity" aria-label="social">
           <FontAwesomeIcon icon={faSnapchat} className="p-1 py-2"/>
-        </a>
-        <a href="#" className="w3-hover-opacity">
+        </Link>
+        <Link href="#" className="w3-hover-opacity" aria-label="social">
           <FontAwesomeIcon icon={faPinterestP} className="p-1 py-2"/>
-        </a>
-        <a href="#" className="w3-hover-opacity">
+        </Link>
+        <Link href="#" className="w3-hover-opacity" aria-label="social">
           <FontAwesomeIcon icon={faTwitter} className="p-1 py-2"/>
-        </a>
-        <a href="#" className="w3-hover-opacity">
+        </Link>
+        <Link href="#" className="w3-hover-opacity" aria-label="social">
           <FontAwesomeIcon icon={faLinkedin} className="p-1 py-2"/>
-        </a>
+        </Link>
       </div>
     </header>
   );

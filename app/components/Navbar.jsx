@@ -56,7 +56,6 @@ export default function Navbar() {
 
         {/* Sidebar */}
         <div className={sidebar ? 'd-block' : 'd-none'}  >
-
             <div className="w3-sidebar w3-bar-block w3-animate-right w3-round w3-card" onClick={toggleMenu}>
             <Link href="/#about" className="w3-bar-item w3-button me-2">ABOUT</Link>
               
