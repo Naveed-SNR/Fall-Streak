@@ -2,6 +2,16 @@
 import Image from "next/image";
 import 'bootstrap'
 import { useState, useEffect } from "react";
+import "../../firebase.js";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+
+const db = getFirestore()
+const colRef = collection(db, 'Packages')
+
+getDocs(colRef)
+  .then((snapshot) => {
+    console.log(snapshot.docs)
+  })
 
 const imagePaths = [
   '/images/packages/Packages1.webp',
@@ -68,7 +78,7 @@ export default function Packages() {
           <p className="w3-large">Choose a pricing plan that fits your needs.</p>
           <div className="row mx-2 justify-content-center" style={{ marginTop: '64px' }}>
             <div className="mt-4 " style={{ width: '481px' }}>
-              <ul className="w3-ul w3-round w3-white w3-hover-shadow">
+              <ul className="w3-ul w3-round w3-white w3-hover-shadow" id="package1">
                 <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>Heavenly Kashmir (4 Nights, 5 Days)</li>
                 <div style={{ width: '100%', height: '362px', position: 'relative'}}>
                   <Image src={imagePaths[0]} alt="" className="img-fluid overflow-hidden aspect-ratio" fill     sizes="100vw" />
@@ -86,7 +96,7 @@ export default function Packages() {
               </ul>
             </div>
             <div className="mt-4 " style={{ width: '481px' }}>
-              <ul className="w3-ul w3-round w3-white w3-hover-shadow">
+              <ul className="w3-ul w3-round w3-white w3-hover-shadow" id="package2">
                 <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>Himalayan Getaway (6 Nights, 7 Days)</li>
                 <div style={{ width: '100%', height: '362px', position: 'relative'}}>
                   <Image src={imagePaths[1]} alt="" className="img-fluid overflow-hidden aspect-ratio" fill     sizes="100vw" />
@@ -104,7 +114,7 @@ export default function Packages() {
               </ul>
             </div>
             <div className="mt-4 " style={{ width: '481px' }}>
-              <ul className="w3-ul w3-round w3-white w3-hover-shadow">
+              <ul className="w3-ul w3-round w3-white w3-hover-shadow" id="package3">
                 <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>Kashmir Family Odyssey (7 Nights, 8 Days)</li>
                 <div style={{ width: '100%', height: '362px', position: 'relative'}}>
                   <Image src={imagePaths[1]} alt="" className="img-fluid overflow-hidden aspect-ratio" fill     sizes="100vw" />
@@ -122,7 +132,7 @@ export default function Packages() {
               </ul>
             </div>
             <div className="mt-4 " style={{ width: '481px' }}>
-              <ul className="w3-ul w3-round w3-white w3-hover-shadow">
+              <ul className="w3-ul w3-round w3-white w3-hover-shadow" id="package4">
                 <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>Kashmir Heritage (5 Nights, 6 Days)</li>
                 <div style={{ width: '100%', height: '362px', position: 'relative'}}>
                   <Image src={imagePaths[3]} alt="" className="img-fluid overflow-hidden aspect-ratio" fill     sizes="100vw" />
@@ -140,7 +150,7 @@ export default function Packages() {
               </ul>
             </div>
             <div className="mt-4 " style={{ width: '481px' }}>
-              <ul className="w3-ul w3-round w3-white w3-hover-shadow">
+              <ul className="w3-ul w3-round w3-white w3-hover-shadow" id="package5">
                 <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>Honeymoon Retreat (5 Nights, 6 Days)</li>
                 <div style={{ width: '100%', height: '362px', position: 'relative'}}>
                   <Image src={imagePaths[4]} alt="" className="img-fluid overflow-hidden aspect-ratio" fill sizes="100vw" />
@@ -158,7 +168,7 @@ export default function Packages() {
               </ul>
             </div>
             <div className="mt-4 " style={{ width: '481px' }}>
-              <ul className="w3-ul w3-round w3-white w3-hover-shadow">
+              <ul className="w3-ul w3-round w3-white w3-hover-shadow" id="package6">
                 <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>Alpine Serenity (7 Nights, 8 Days)</li>
                 <div style={{ width: '100%', height: '362px', position: 'relative'}}>
                   <Image src={imagePaths[5]} alt="" className="img-fluid overflow-hidden aspect-ratio" fill     sizes="100vw" />
