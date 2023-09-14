@@ -20,42 +20,44 @@ const imagePaths = [
 export default function Packages() {
 
   // const [selectedPackage, setSelectedPackage] = useState(""); // Default selected package
+  const [packageNames, setPackageNames] = useState([])
+  
 
   useEffect(() => {
     getDocs(colRef)
       .then((snapshot) => {
-        const packages = []
+        const packages = [];
+        
         snapshot.docs.forEach((doc) => {
           const packageData = {
             id: doc.id,
             packageName: doc.data()["Package Name"],
             price: doc.data()["Price"],
-            chargedAs: doc.data()["Charged As"],
+            chargedBasis: doc.data()["Charge Basis"],
             // Add more fields as needed
           }
-        packages.push(packageData);
-    })
-    console.log(packages[0].price)
+          packages.push(packageData);
+        })
+        setPackageNames(packages.map((packageData) => packageData.packageName));
   })
   .catch(err => {
     console.error('Error getting documents', err);
   })
 
-    // setPackageNames(names);
   }, []);
 
     document.querySelectorAll('.book-now-button').forEach((button) => {
     button.addEventListener('click', () => handleBookNowClick(button));
   });
   
-  const handleBookNowClick = (button) => {
+  // const handleBookNowClick = (button) => {
 
-    // Find the parent <ul> element of the clicked button
-    const parentUl = button.closest("ul");
-    const packageElement = parentUl.querySelector('li:first-child');
+  //   // Find the parent <ul> element of the clicked button
+  //   const parentUl = button.closest("ul");
+  //   const packageElement = parentUl.querySelector('li:first-child');
 
-    setSelectedPackage(packageElement.textContent.trim());
-  };
+  //   setSelectedPackage(packageElement.textContent.trim());
+  // };
 
   return (
     <div>
@@ -184,13 +186,13 @@ export default function Packages() {
           <div className="modal-body">
             <form id="booking-form" className="form m-4">
               <label className="form-label mt-2" htmlFor="package-select">Select a Package:</label>
-              {/* <select className="form-select" id="package-select" name="package" value={selectedPackage} onChange={(e) => setSelectedPackage(e.target.value)}>
+              <select className="form-select" id="package-select" name="package" value="">
                 {packageNames.map((packageName, index) => (
                   <option key={index} value={packageName}>
                     {packageName}
                   </option>
                 ))}
-              </select> */}
+              </select>
               <label className="form-label mt-2" htmlFor="name">Name:</label>
               <input className="form-control" type="text" id="name" name="name" required />
               <label className="form-label mt-2" htmlFor="phone">Phone Number:</label>
