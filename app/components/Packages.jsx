@@ -20,13 +20,12 @@ const imagePaths = [
 export default function Packages() {
 
   // const [selectedPackage, setSelectedPackage] = useState(""); // Default selected package
-  const [packageNames, setPackageNames] = useState([])
+  const [packages, setPackages] = useState([])
   
-
   useEffect(() => {
     getDocs(colRef)
       .then((snapshot) => {
-        const packages = [];
+        
         
         snapshot.docs.forEach((doc) => {
           const packageData = {
@@ -38,7 +37,7 @@ export default function Packages() {
           }
           packages.push(packageData);
         })
-        setPackageNames(packages.map((packageData) => packageData.packageName));
+        setPackages(packages.map((packageData) => packageData));
   })
   .catch(err => {
     console.error('Error getting documents', err);
@@ -64,6 +63,8 @@ export default function Packages() {
         <div className="w3-container card-container w3-center w3-dark-grey" style={{ padding: '128px 16px' }}     id="packages">
           <h3>PRICING</h3>
           <p className="w3-large">Choose a pricing plan that fits your needs.</p>
+
+          
           <div className="row mx-2 justify-content-center" style={{ marginTop: '64px' }}>
             <div className="mt-4 " style={{ width: '481px' }}>
               <ul className="w3-ul w3-round w3-white w3-hover-shadow" id="package1">
@@ -187,9 +188,9 @@ export default function Packages() {
             <form id="booking-form" className="form m-4">
               <label className="form-label mt-2" htmlFor="package-select">Select a Package:</label>
               <select className="form-select" id="package-select" name="package" value="">
-                {packageNames.map((packageName, index) => (
-                  <option key={index} value={packageName}>
-                    {packageName}
+                {packages.map((pkg, index) => (
+                  <option key={index} value={pkg.packageName}>
+                    {pkg.packageName}
                   </option>
                 ))}
               </select>
