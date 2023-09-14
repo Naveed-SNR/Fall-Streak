@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app"
 import "firebase/auth";
 import "firebase/firestore";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { collection, getDocs, getFirestore, doc, onSnapshot} from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,15 +24,20 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore()
 const colRef = collection(db, 'Packages')
 
-getDocs(colRef)
-  .then((snapshot) => {
-    let packages = []
-    snapshot.docs.forEach((doc) => {
-      packages.push({...doc.data(), id: doc.id})
-    })
-    console.log(packages)
-  })
-  .catch(err => {
-    console.error('Error getting documents', err);
-  })
+export {db, colRef}
+// getDocs(colRef)
+//   .then((snapshot) => {
+//     let packages = []
+//     snapshot.docs.forEach((doc) => {
+//       packages.push({...doc.data(), id: doc.id})
+//     })
+//     console.log(packages)
+//   })
+//   .catch(err => {
+//     console.error('Error getting documents', err);
+//   })
+
+  // onSnapshot(colRef, (snapshot)) => {
+    
+  // }
 
