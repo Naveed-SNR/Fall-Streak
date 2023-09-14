@@ -2,16 +2,8 @@
 import Image from "next/image";
 import 'bootstrap'
 import { useState, useEffect } from "react";
-import "../../firebase.js";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
-
-const db = getFirestore()
-const colRef = collection(db, 'Packages')
-
-getDocs(colRef)
-  .then((snapshot) => {
-    console.log(snapshot.docs)
-  })
+import { db, colRef } from "../../firebase";
+import { collection, getDocs, getFirestore, doc, onSnapshot} from "firebase/firestore";
 
 const imagePaths = [
   '/images/packages/Packages1.webp',
@@ -27,35 +19,29 @@ const imagePaths = [
 
 export default function Packages() {
 
-  const [packageNames, setPackageNames] = useState([]); // State for package names
-  const [selectedPackage, setSelectedPackage] = useState(""); // Default selected package
+  // const [selectedPackage, setSelectedPackage] = useState(""); // Default selected package
 
-
-  // //Use this to load pacakages statically; array needs to be manualyy updated in case of changes [Comment out the hook for package names if you want to use this]
-  // const packageNames = [
-  //   "4 Nights 5 Days with Gulmarg Night Stay",
-  //   "4 Nights 5 Days Group Package From Srinagar",
-  //   "6 Nights 7 Days Honeymoon Package",
-  //   "4 Nights 5 Days with Gulmarg Night Stay",
-  //   "4 Nights 5 Days Group Package From Srinagar",
-  //   "6 Nights 7 Days Honeymoon Package",
-  //   // Add more package names as needed
-  // ];
-
-  // Extract package names from the first li element of each ul. Only edit html to update packages, no need to update anything here
   useEffect(() => {
-    const names = [];
-    const ulElements = document.querySelectorAll(".w3-ul"); // Assuming all ul elements have this class
+    getDocs(colRef)
+      .then((snapshot) => {
+        const packages = []
+        snapshot.docs.forEach((doc) => {
+          const packageData = {
+            id: doc.id,
+            packageName: doc.data()["Package Name"],
+            price: doc.data()["Price"],
+            chargedAs: doc.data()["Charged As"],
+            // Add more fields as needed
+          }
+        packages.push(packageData);
+    })
+    console.log(packages[0].price)
+  })
+  .catch(err => {
+    console.error('Error getting documents', err);
+  })
 
-    ulElements.forEach((ul) => {
-      const liElement = ul.querySelector("li");
-      if (liElement) {
-        const packageName = liElement.textContent.trim();
-        names.push(packageName);
-      }
-    });
-
-    setPackageNames(names);
+    // setPackageNames(names);
   }, []);
 
     document.querySelectorAll('.book-now-button').forEach((button) => {
@@ -198,13 +184,13 @@ export default function Packages() {
           <div className="modal-body">
             <form id="booking-form" className="form m-4">
               <label className="form-label mt-2" htmlFor="package-select">Select a Package:</label>
-              <select className="form-select" id="package-select" name="package" value={selectedPackage} onChange={(e) => setSelectedPackage(e.target.value)}>
+              {/* <select className="form-select" id="package-select" name="package" value={selectedPackage} onChange={(e) => setSelectedPackage(e.target.value)}>
                 {packageNames.map((packageName, index) => (
                   <option key={index} value={packageName}>
                     {packageName}
                   </option>
                 ))}
-              </select>
+              </select> */}
               <label className="form-label mt-2" htmlFor="name">Name:</label>
               <input className="form-control" type="text" id="name" name="name" required />
               <label className="form-label mt-2" htmlFor="phone">Phone Number:</label>
