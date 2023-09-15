@@ -19,7 +19,7 @@ const imagePaths = [
 
 export default function Packages() {
   const [packages, setPackages] = useState([]);
-  const [selectedPackage, setSelectedPackage] = useState();
+  const [selectedPackage, setSelectedPackage] = useState([]);
 
   useEffect(() => {
     getDocs(colRef)
@@ -42,9 +42,15 @@ export default function Packages() {
       });
   }, []);
 
-  const handleBookNowClick = (pkgName) => {
-    setSelectedPackage(pkgName);
+  const handleBookNowClick = (pkg) => {
+    setSelectedPackage(pkg);
   };
+
+  // Add this useEffect to log the selected package when it changes
+  useEffect(() => {
+    console.log(selectedPackage.id);
+  }, [selectedPackage]);
+
 
   return (
     <div>
@@ -68,7 +74,7 @@ export default function Packages() {
                   <span className="w3-opacity">{pkg.chargeBasis}</span>
                 </li>
                 <li className="w3-light-grey w3-padding-16" style={{ borderRadius: '0' }}>
-                  <button className="w3-button w3-black w3-padding-large w3-round book-now-button" data-bs-toggle="modal" data-bs-target="#popupform" onClick={() => handleBookNowClick(pkg.packageName)}>Book Now</button>
+                  <button className="w3-button w3-black w3-padding-large w3-round book-now-button" data-bs-toggle="modal" data-bs-target="#popupform" onClick={() => handleBookNowClick(pkg)}>Book Now</button>
                 </li>
               </ul>
             </div>
@@ -84,9 +90,9 @@ export default function Packages() {
               <button type="button" className="w3-black w3-border-0" data-bs-dismiss="modal" aria-label="Close">X</button>
             </div>
             <div className="modal-body">
-              <form id="booking-form" className="form m-4">
+              <form id="booking-form" className="form m-4" >
                 <label className="form-label mt-2" htmlFor="package-select">Select a Package:</label>
-                <select className="form-select" id="package-select" name="package" value={selectedPackage} onChange={(e) => setSelectedPackage(e.target.value)}>
+                <select className="form-select" id="package-select" name="package" value={selectedPackage.packageName} onChange={(e) => setSelectedPackage(e.target.value)}>
                   {packages.map((pkg, index) => (
                     <option key={index} value={pkg.packageName}>
                       {pkg.packageName}

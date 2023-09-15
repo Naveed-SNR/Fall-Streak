@@ -1,4 +1,3 @@
-"use client"
 import Image from "next/image";
 const imagePaths = [
   '/images/gallery/Gallery1.webp',
