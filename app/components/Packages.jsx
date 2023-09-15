@@ -4,6 +4,8 @@ import 'bootstrap';
 import { useState, useEffect } from "react";
 import { colRef } from "../../firebase";
 import { getDocs } from "firebase/firestore";
+import stripePromise from "../../stripe.js";
+
 
 const imagePaths = [
   '/images/packages/Packages1.webp',
@@ -48,9 +50,31 @@ export default function Packages() {
 
   // Add this useEffect to log the selected package when it changes
   useEffect(() => {
-    console.log(selectedPackage.id);
+    console.log(selectedPackage);
   }, [selectedPackage]);
-
+  
+  const handleSubmit = async (pkg) => {
+    const stripe = await stripePromise;
+    const response = await fetch('/api/create-checkout-session', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        price: pkg.price, // You should set up your own pricing on the server-side
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+      }),
+    });
+    const session = await response.json();
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+  
+    if (result.error) {
+      console.error(result.error);
+    }
+  };
 
   return (
     <div>
