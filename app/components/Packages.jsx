@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { colRef } from "../../firebase";
 import { getDocs } from "firebase/firestore";
 import stripePromise from "../../stripe.js";
-
+import CheckoutForm from "../components/CheckoutForm";
 
 const imagePaths = [
   '/images/packages/Packages1.webp',
@@ -55,7 +55,7 @@ export default function Packages() {
   
   const handleSubmit = async (pkg) => {
     const stripe = await stripePromise;
-    const response = await fetch('/api/create-checkout-session', {
+    const response = await fetch('../api/Checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -74,6 +74,15 @@ export default function Packages() {
     if (result.error) {
       console.error(result.error);
     }
+    return (
+      <div className="App">
+        {clientSecret && (
+          <Elements options={options} stripe={stripePromise}>
+            <CheckoutForm />
+          </Elements>
+        )}
+      </div>
+    );
   };
 
   return (
@@ -114,9 +123,9 @@ export default function Packages() {
               <button type="button" className="w3-black w3-border-0" data-bs-dismiss="modal" aria-label="Close">X</button>
             </div>
             <div className="modal-body">
-              <form id="booking-form" className="form m-4" >
+              <form id="booking-form" className="form m-4" onSubmit={handleSubmit} >
                 <label className="form-label mt-2" htmlFor="package-select">Select a Package:</label>
-                <select className="form-select" id="package-select" name="package" value={selectedPackage.packageName} onChange={(e) => setSelectedPackage(e.target.value)}>
+                <select className="form-select" id="package-select" name="package" value={selectedPackage} onChange={(e) => setSelectedPackage(e.target.value)}>
                   {packages.map((pkg, index) => (
                     <option key={index} value={pkg.packageName}>
                       {pkg.packageName}
