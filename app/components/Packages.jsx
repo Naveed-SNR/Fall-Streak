@@ -61,7 +61,7 @@ export default function Packages() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        price: pkg.price, // You should set up your own pricing on the server-side
+        price: pkg.price, 
         name: document.getElementById('name').value,
         email: document.getElementById('email').value,
       }),
