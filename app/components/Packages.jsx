@@ -60,12 +60,24 @@ export default function Packages() {
     }
   
     // Create a Stripe session
-    const response = await fetch('/api/route', {
+    const response = await fetch('/api/payment', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({  }), // Send the price to the server
+      body: JSON.stringify({
+        packageName: selectedPackage.packageName,
+        price: selectedPackage.price,
+        name: e.target.name.value,
+        phone: e.target.phone.value,
+        email: e.target.email.value,
+        }), // Send the price to the server
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
     });
   
     const session = await response.json();
@@ -79,6 +91,15 @@ export default function Packages() {
       // Handle any errors that occurred during the redirect.
       console.error(result.error);
     }
+    return (
+      <div className="App">
+        {clientSecret && (
+          <Elements options={options} stripe={stripePromise}>
+            <CheckoutForm />
+          </Elements>
+        )}
+      </div>
+    );
   };
 
   return (
