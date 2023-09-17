@@ -4,6 +4,8 @@ import 'bootstrap';
 import { useState, useEffect } from "react";
 import { colRef } from "../../firebase";
 import { getDocs } from "firebase/firestore";
+import { Elements } from '@stripe/react-stripe-js'; // Import Elements
+import CheckoutForm from "../checkout/page.jsx";
 import stripePromise from "../../stripe.js";
 
 
@@ -21,23 +23,20 @@ const imagePaths = [
 
 export default function Packages() {
   const [packages, setPackages] = useState([]);
-  const [selectedPackage, setSelectedPackage] = useState([]);
+  const [selectedPackage, setSelectedPackage] = useState(null);
 
   useEffect(() => {
     getDocs(colRef)
       .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
-          const packageData = {
-            id: doc.id,
-            packageName: doc.data()["Package Name"],
-            price: doc.data()["Price"],
-            chargeBasis: doc.data()["Charge Basis"],
-            locations: doc.data()["Locations"],
-            duration: doc.data()["Duration"]
-          };
-          packages.push(packageData);
-        });
-        setPackages(packages.map((packageData) => packageData));
+        const packageDataArray = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          packageName: doc.data()["Package Name"],
+          price: doc.data()["Price"],
+          chargeBasis: doc.data()["Charge Basis"],
+          locations: doc.data()["Locations"],
+          duration: doc.data()["Duration"],
+        }));
+        setPackages(packageDataArray);
       })
       .catch(err => {
         console.error('Error getting documents', err);
@@ -48,32 +47,59 @@ export default function Packages() {
     setSelectedPackage(pkg);
   };
 
-  // Add this useEffect to log the selected package when it changes
-  useEffect(() => {
-    console.log(selectedPackage);
-  }, [selectedPackage]);
+  const handleSubmit = async (e) => {
+    
+    e.preventDefault();
   
-  const handleSubmit = async (pkg) => {
     const stripe = await stripePromise;
-    const response = await fetch('/api/create-checkout-session', {
+  
+    // Check if a package is selected
+    if (!selectedPackage) {
+      console.error("No package selected.");
+      return;
+    }
+  
+    // Create a Stripe session
+    const response = await fetch('/api/payment', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        price: pkg.price, 
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-      }),
+        packageName: selectedPackage.packageName,
+        price: selectedPackage.price,
+        name: e.target.name.value,
+        phone: e.target.phone.value,
+        email: e.target.email.value,
+        }), // Send the price to the server
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
     });
+  
     const session = await response.json();
+  
+    // Redirect the user to the Stripe payment page
     const result = await stripe.redirectToCheckout({
       sessionId: session.id,
     });
   
     if (result.error) {
+      // Handle any errors that occurred during the redirect.
       console.error(result.error);
     }
+    return (
+      <div className="App">
+        {clientSecret && (
+          <Elements options={options} stripe={stripePromise}>
+            <CheckoutForm />
+          </Elements>
+        )}
+      </div>
+    );
   };
 
   return (
@@ -84,7 +110,7 @@ export default function Packages() {
 
         <div className="row mx-2 justify-content-center" style={{ marginTop: '64px' }}>
           {packages.map((pkg, index) => (
-            <div className="mt-4" style={{ width: '481px' }}>
+            <div className="mt-4" style={{ width: '481px' }} key={pkg.id}>
               <ul className="w3-ul w3-round w3-white w3-hover-shadow">
                 <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>{pkg.packageName} ({pkg.duration})</li>
                 <div style={{ width: '100%', height: '362px', position: 'relative' }}>
@@ -114,9 +140,9 @@ export default function Packages() {
               <button type="button" className="w3-black w3-border-0" data-bs-dismiss="modal" aria-label="Close">X</button>
             </div>
             <div className="modal-body">
-              <form id="booking-form" className="form m-4" >
+              <form id="booking-form" className="form m-4" onSubmit={handleSubmit}>
                 <label className="form-label mt-2" htmlFor="package-select">Select a Package:</label>
-                <select className="form-select" id="package-select" name="package" value={selectedPackage.packageName} onChange={(e) => setSelectedPackage(e.target.value)}>
+                <select className="form-select" id="package-select" name="package" value={selectedPackage ? selectedPackage.packageName : ''} onChange={(e) => setSelectedPackage(packages.find(pkg => pkg.packageName === e.target.value))}>
                   {packages.map((pkg, index) => (
                     <option key={index} value={pkg.packageName}>
                       {pkg.packageName}
@@ -130,7 +156,7 @@ export default function Packages() {
                 <label className="form-label mt-2" htmlFor="email">Email:</label>
                 <input className="form-control" type="email" id="email" name="email" required />
                 <div className="modal-footer justify-content-center">
-                  <button className="w3-button w3-black w3-round px-4 py- mt-4" type="submit">Submit</button>
+                    <button className="w3-button w3-black w3-round px-4 py- mt-4" type="submit">Submit</button>
                 </div>
               </form>
             </div>
