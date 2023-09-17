@@ -21,10 +21,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={rem.className}>
-        <Navbar />
+      <body className={rem.className}>   
         {children}
-        <Footer />
         </body>
     </html>
   )
