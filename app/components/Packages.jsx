@@ -48,7 +48,7 @@ export default function Packages() {
   };
 
   const handleSubmit = async (e) => {
-    console.log(selectedPackage)
+    
     e.preventDefault();
   
     const stripe = await stripePromise;
