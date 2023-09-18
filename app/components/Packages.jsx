@@ -5,8 +5,10 @@ import { useState, useEffect } from "react";
 import { colRef } from "../../firebase";
 import { getDocs } from "firebase/firestore";
 import { Elements } from '@stripe/react-stripe-js'; // Import Elements
-import CheckoutForm from "../checkout/page.jsx";
-import stripePromise from "../../stripe.js";
+import CheckoutForm from "../components/CheckoutForm";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe('process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY')
 
 
 const imagePaths = [
@@ -47,59 +49,42 @@ export default function Packages() {
     setSelectedPackage(pkg);
   };
 
+  const stripePromise = loadStripe('NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY');
+
   const handleSubmit = async (e) => {
-    
     e.preventDefault();
   
-    const stripe = await stripePromise;
-  
-    // Check if a package is selected
     if (!selectedPackage) {
-      console.error("No package selected.");
+      // Handle the case where no package is selected.
       return;
     }
   
-    // Create a Stripe session
+    // Create a Payment Intent on the client side
     const response = await fetch('/api/payment', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        packageName: selectedPackage.packageName,
-        price: selectedPackage.price,
-        name: e.target.name.value,
-        phone: e.target.phone.value,
-        email: e.target.email.value,
-        }), // Send the price to the server
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
+      body: JSON.stringify({ amount: selectedPackage.price * 100 }), // Amount should be in cents
     });
   
-    const session = await response.json();
+    const { clientSecret } = await response.json();
   
-    // Redirect the user to the Stripe payment page
-    const result = await stripe.redirectToCheckout({
-      sessionId: session.id,
+    // Use the clientSecret to complete the payment with Stripe.js
+    const stripe = await stripePromise;
+    const { error } = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: stripe.elements.getElement('card'), // Use your card element
+      },
     });
   
-    if (result.error) {
-      // Handle any errors that occurred during the redirect.
-      console.error(result.error);
+    if (error) {
+      // Handle payment error
+      console.error(error);
+    } else {
+      // Payment succeeded
+      // You can redirect the user to a success page or show a success message.
     }
-    return (
-      <div className="App">
-        {clientSecret && (
-          <Elements options={options} stripe={stripePromise}>
-            <CheckoutForm />
-          </Elements>
-        )}
-      </div>
-    );
   };
 
   return (
@@ -140,7 +125,7 @@ export default function Packages() {
               <button type="button" className="w3-black w3-border-0" data-bs-dismiss="modal" aria-label="Close">X</button>
             </div>
             <div className="modal-body">
-              <form id="booking-form" className="form m-4" onSubmit={handleSubmit}>
+              <form id="booking-form" className="form m-4">
                 <label className="form-label mt-2" htmlFor="package-select">Select a Package:</label>
                 <select className="form-select" id="package-select" name="package" value={selectedPackage ? selectedPackage.packageName : ''} onChange={(e) => setSelectedPackage(packages.find(pkg => pkg.packageName === e.target.value))}>
                   {packages.map((pkg, index) => (
@@ -156,7 +141,7 @@ export default function Packages() {
                 <label className="form-label mt-2" htmlFor="email">Email:</label>
                 <input className="form-control" type="email" id="email" name="email" required />
                 <div className="modal-footer justify-content-center">
-                    <button className="w3-button w3-black w3-round px-4 py- mt-4" type="submit">Submit</button>
+                    <button className="w3-button w3-black w3-round px-4 py- mt-4" type="submit" onClick={handleSubmit}>Submit</button>
                 </div>
               </form>
             </div>
