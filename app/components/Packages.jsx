@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import 'bootstrap';
 import { useState, useEffect } from "react";
 import { colRef } from "../../firebase";
@@ -26,6 +27,7 @@ const imagePaths = [
 export default function Packages() {
   const [packages, setPackages] = useState([]);
   const [selectedPackage, setSelectedPackage] = useState(null);
+  
 
   useEffect(() => {
     getDocs(colRef)
@@ -33,10 +35,11 @@ export default function Packages() {
         const packageDataArray = snapshot.docs.map((doc) => ({
           id: doc.id,
           packageName: doc.data()["Package Name"],
+          duration: doc.data()["Duration"],
+          locations: doc.data()["Locations"],
           price: doc.data()["Price"],
           chargeBasis: doc.data()["Charge Basis"],
-          locations: doc.data()["Locations"],
-          duration: doc.data()["Duration"],
+          link: doc.data()["Link"]
         }));
         setPackages(packageDataArray);
       })
@@ -47,7 +50,9 @@ export default function Packages() {
 
   const handleBookNowClick = (pkg) => {
     setSelectedPackage(pkg);
+    
   };
+
 
   const stripePromise = loadStripe('NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY');
 
@@ -141,7 +146,11 @@ export default function Packages() {
                 <label className="form-label mt-2" htmlFor="email">Email:</label>
                 <input className="form-control" type="email" id="email" name="email" required />
                 <div className="modal-footer justify-content-center">
-                    <button className="w3-button w3-black w3-round px-4 py- mt-4" type="submit" onClick={handleSubmit}>Submit</button>
+                  {selectedPackage && (
+                  <Link href={selectedPackage.link}>
+                    <button className="w3-button w3-black w3-round px-4 py- mt-4" type="submit">Submit</button>
+                  </Link>
+                  )}     
                 </div>
               </form>
             </div>
