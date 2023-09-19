@@ -5,11 +5,7 @@ import 'bootstrap';
 import { useState, useEffect } from "react";
 import { colRef } from "../../firebase";
 import { getDocs } from "firebase/firestore";
-import { Elements } from '@stripe/react-stripe-js'; // Import Elements
-import CheckoutForm from "../components/CheckoutForm";
-import { loadStripe } from "@stripe/stripe-js";
 
-const stripePromise = loadStripe('process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY')
 
 
 const imagePaths = [
@@ -21,7 +17,7 @@ const imagePaths = [
   '/images/packages/Packages1.webp',
   '/images/packages/Packages2.webp',
   '/images/packages/Packages3.webp',
-  // Add more image file names as needed
+
 ];
 
 export default function Packages() {
@@ -53,44 +49,6 @@ export default function Packages() {
     
   };
 
-
-  const stripePromise = loadStripe('NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY');
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  
-    if (!selectedPackage) {
-      // Handle the case where no package is selected.
-      return;
-    }
-  
-    // Create a Payment Intent on the client side
-    const response = await fetch('/api/payment', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ amount: selectedPackage.price * 100 }), // Amount should be in cents
-    });
-  
-    const { clientSecret } = await response.json();
-  
-    // Use the clientSecret to complete the payment with Stripe.js
-    const stripe = await stripePromise;
-    const { error } = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: {
-        card: stripe.elements.getElement('card'), // Use your card element
-      },
-    });
-  
-    if (error) {
-      // Handle payment error
-      console.error(error);
-    } else {
-      // Payment succeeded
-      // You can redirect the user to a success page or show a success message.
-    }
-  };
 
   return (
     <div>
