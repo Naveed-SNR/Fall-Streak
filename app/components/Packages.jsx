@@ -6,9 +6,6 @@ import { useState, useEffect } from "react";
 import { colRef } from "../../firebase";
 import { getDocs } from "firebase/firestore";
 
-import { loadStripe } from "@stripe/stripe-js";
-
-const stripePromise = loadStripe('process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY')
 
 
 const imagePaths = [
@@ -51,12 +48,7 @@ export default function Packages() {
     setSelectedPackage(pkg);
     
   };
-
-
-  const stripePromise = loadStripe('NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY');
-
  
-
   return (
     <div>
       <div className="w3-container card-container w3-center w3-dark-grey" style={{ padding: '128px 16px' }} id="packages">
