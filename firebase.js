@@ -19,12 +19,14 @@ const firebaseConfig = {
   };
 
 
-const app = initializeApp(firebaseConfig);
+const firebaseInit = initializeApp(firebaseConfig);
 
 const db = getFirestore()
 const colRef = collection(db, 'Packages')
 
 export {db, colRef}
+export default firebaseInit;
+
 // getDocs(colRef)
 //   .then((snapshot) => {
 //     let packages = []

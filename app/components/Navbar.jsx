@@ -7,10 +7,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImage, faTh, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { Fade as Hamburger } from 'hamburger-react';
 
+
 export default function Navbar() {
 
   const [sidebar, setSidebar] = useState(false)
   const [isOpen, setOpen] = useState(false)
+  
+  
   
 
   const toggleMenu=()=> {
@@ -19,7 +22,7 @@ export default function Navbar() {
 
   }
   return (
-    <main>  
+    <>  
       <nav className="w3-top w3-card">
                  
         <div className="w3-bar">
@@ -75,6 +78,6 @@ export default function Navbar() {
 
       </div>
       </nav>
-    </main>
+    </>
   );
 }

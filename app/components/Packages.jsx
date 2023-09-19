@@ -6,6 +6,9 @@ import { useState, useEffect } from "react";
 import { colRef } from "../../firebase";
 import { getDocs } from "firebase/firestore";
 
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe('process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY')
 
 
 const imagePaths = [
@@ -17,7 +20,7 @@ const imagePaths = [
   '/images/packages/Packages1.webp',
   '/images/packages/Packages2.webp',
   '/images/packages/Packages3.webp',
-
+  // Add more image file names as needed
 ];
 
 export default function Packages() {
@@ -49,6 +52,10 @@ export default function Packages() {
     
   };
 
+
+  const stripePromise = loadStripe('NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY');
+
+ 
 
   return (
     <div>

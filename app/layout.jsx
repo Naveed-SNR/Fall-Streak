@@ -22,8 +22,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={rem.className}>   
+        <Navbar />
         {children}
-        </body>
+        <Footer />
+      </body>
+      
     </html>
   )
 }
