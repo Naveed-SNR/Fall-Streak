@@ -19,7 +19,7 @@
       }
   
       nav {
-        background-color: #e1f9fdbc;
+        background-color: #daf4f9bc;
         backdrop-filter:  blur(4px);
       }
   
@@ -35,7 +35,7 @@
         right: 0;
         height: 100vh;
         overflow: hidden;
-        background-color: #e1f9fdbc;
+        background-color: #daf4f9bc;
         backdrop-filter:  blur(4px);
         /* border: none; */
         width: 54.2%;

@@ -57,8 +57,8 @@ export default function Packages() {
 
         <div className="row mx-2 justify-content-center" style={{ marginTop: '64px' }}>
           {packages.map((pkg, index) => (
-            <div className="mt-4" style={{ width: '481px' }} key={pkg.id}>
-              <ul className="w3-ul w3-round w3-white w3-hover-shadow">
+            <div className="mt-4 w3-round" style={{ width: '481px' }} key={pkg.id}>
+              <ul className="w3-ul w3-white w3-hover-shadow">
                 <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>{pkg.packageName} ({pkg.duration})</li>
                 <div style={{ width: '100%', height: '362px', position: 'relative' }}>
                   <Image src={imagePaths[index]} alt="" className="img-fluid overflow-hidden aspect-ratio" fill sizes="100vw" />

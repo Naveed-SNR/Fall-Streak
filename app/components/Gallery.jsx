@@ -9,7 +9,7 @@ export default function Gallery() {
     <>
       <div className="w3-container w3-light-grey" style={{ padding: '128px 16px' }} id="gallery">
         <h3 className="w3-center">GALLERY</h3>
-        <p className="w3-center w3-large">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, at nulla!</p>
+        <p className="w3-center w3-large">Soulful Snapshots: Capturing Kashmir's Essence</p>
 
         <div className="d-flex flex-wrap justify-content-center">
           {images.map((image, id) => (
