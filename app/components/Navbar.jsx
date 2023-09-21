@@ -2,10 +2,12 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import {usePathname} from 'next/navigation'
 import Logo from '../../public/images/logo/Logo.svg';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImage, faTh, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { Fade as Hamburger } from 'hamburger-react';
+import { motion } from 'framer-motion';
 
 
 export default function Navbar() {
@@ -13,15 +15,22 @@ export default function Navbar() {
   const [sidebar, setSidebar] = useState(false)
   const [isOpen, setOpen] = useState(false)
   
-  
-  
+  const currentPath = usePathname()
+
+  const [activeLink, setActiveLink] = useState()
 
   const toggleMenu=()=> {
     setOpen(!isOpen)
     setSidebar(!sidebar)
 
   }
+
+  const handleClick = () => {
+    setActiveLink(`${currentPath}#about`)
+    console.log(activeLink)
+  }
   return (
+    
     <>  
       <nav className="w3-top w3-card">
                  
@@ -38,17 +47,17 @@ export default function Navbar() {
             />
           </Link>
           <div className="w3-right" id="navbarSupportedContent">
-                <Link href="/#about" className="w3-bar-item w3-button w3-round me-2 d-none d-lg-flex mt-3">ABOUT</Link>
+                <Link href="/#about" onClick={handleClick} className={`w3-bar-item w3-button w3-round me-2 d-none d-lg-flex mt-3 ${activeLink === '/#about' ? 'active' : ''}`}>ABOUT</Link>
 
-                <Link href="/gallery" className="w3-bar-item w3-button d-none d-lg-flex mt-3">
+                <Link href="/gallery" className={`w3-bar-item w3-button w3-round me-2 d-none d-lg-flex mt-3 ${currentPath === '/#gallery' ? 'active' : ''}`}>
                   <FontAwesomeIcon icon={faImage} style={{ fontSize: '1rem' }} className="me-2 mt-1" /> GALLERY
                 </Link>
 
-                <Link href="/#packages" className="w3-bar-item w3-button w3-round d-none d-lg-flex mt-3">
+                <Link href="/#packages" className={`w3-bar-item w3-button w3-round me-2 d-none d-lg-flex mt-3 ${currentPath === '/#packages' ? 'active' : ''}`}>
                   <FontAwesomeIcon icon={faTh} style={{ fontSize: '1rem' }} className="me-2 mt-1" /> PACKAGES
                 </Link>
 
-                <Link href="/#contact" className="w3-bar-item w3-button w3-round d-none d-lg-flex mt-3">
+                <Link href="/#contact" className={`w3-bar-item w3-button w3-round me-2 d-none d-lg-flex mt-3 ${currentPath === '/#contact' ? 'active' : ''}`}>
                   <FontAwesomeIcon icon={faEnvelope} style={{ display: 'inline' }} className="me-2 mt-1" /> CONTACT
                 </Link>
                 <div className="d-lg-none d-block mt-2" onClick={toggleMenu}>
