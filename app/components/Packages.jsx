@@ -5,7 +5,8 @@ import 'bootstrap';
 import { useState, useEffect } from "react";
 import { colRef } from "../../firebase";
 import { getDocs } from "firebase/firestore";
-
+import axios from "axios";
+import GooglePay from "../components/Gpay";
 
 
 const imagePaths = [
@@ -47,6 +48,28 @@ export default function Packages() {
   const handleBookNowClick = (pkg) => {
     setSelectedPackage(pkg);
     
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    // Gather form data
+    const formData = {
+      package: selectedPackage.packageName,
+      name: e.target.name.value,
+      phone: e.target.phone.value,
+      email: e.target.email.value,
+    };
+  
+    try {
+      // Send the form data to your backend API
+      await axios.post('/api/submitForm', formData);
+  
+      // Redirect to the Stripe payment form
+      window.location.href = selectedPackage.link;
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
   };
  
   return (
@@ -102,11 +125,16 @@ export default function Packages() {
                 <input className="form-control" type="tel" id="phone" name="phone" required />
                 <label className="form-label mt-2" htmlFor="email">Email:</label>
                 <input className="form-control" type="email" id="email" name="email" required />
-                <div className="modal-footer justify-content-center">
+                <div className=" modal-footer justify-content-center">
                   {selectedPackage && (
-                  <Link href={selectedPackage.link}>
-                    <button className="w3-button w3-black w3-round px-4 py- mt-4" type="submit">Submit</button>
-                  </Link>
+                  <>
+                    <div className="d-flex gap-2 justify-content-center">
+                      <Link className="justify-content-center"href={selectedPackage.link}>
+                        <button className="w3-button w3-black w3-round " style={{height: "40px",  minHeight: "40px"}}   type="submit">Book Now </button>
+                      </Link>
+                      <GooglePay totalPrice={selectedPackage.price}/>
+                    </div>
+                  </>
                   )}     
                 </div>
               </form>
