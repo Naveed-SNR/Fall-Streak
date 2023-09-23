@@ -7,6 +7,7 @@ import { colRef } from "../../firebase";
 import { getDocs } from "firebase/firestore";
 import axios from "axios";
 import GooglePay from "../components/Gpay";
+import { stringify } from "postcss";
 
 
 const imagePaths = [
@@ -54,18 +55,20 @@ export default function Packages() {
     e.preventDefault();
   
     // Gather form data
-    const formData = {
-      package: selectedPackage.packageName,
-      name: e.target.name.value,
-      phone: e.target.phone.value,
-      email: e.target.email.value,
-    };
-  
+    const formData = new FormData(e.target);
+    console.log(formData)
+
     try {
       // Send the form data to your backend API
-      await axios.post('/api/submitForm', formData);
+      await fetch('/api/submit', {
+        method:'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        }
+      });
   
-      // Redirect to the Stripe payment form
       window.location.href = selectedPackage.link;
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -110,7 +113,7 @@ export default function Packages() {
               <button type="button" className="w3-black w3-border-0" data-bs-dismiss="modal" aria-label="Close">X</button>
             </div>
             <div className="modal-body">
-              <form id="booking-form" className="form m-4">
+              <form id="booking-form" className="form m-4" onSubmit={handleSubmit}>
                 <label className="form-label mt-2" htmlFor="package-select">Select a Package:</label>
                 <select className="form-select" id="package-select" name="package" value={selectedPackage ? selectedPackage.packageName : ''} onChange={(e) => setSelectedPackage(packages.find(pkg => pkg.packageName === e.target.value))}>
                   {packages.map((pkg, index) => (
@@ -126,16 +129,11 @@ export default function Packages() {
                 <label className="form-label mt-2" htmlFor="email">Email:</label>
                 <input className="form-control" type="email" id="email" name="email" required />
                 <div className=" modal-footer justify-content-center">
-                  {selectedPackage && (
-                  <>
-                    <div className="d-flex gap-2 justify-content-center">
-                      <Link className="justify-content-center"href={selectedPackage.link}>
+                  
+    
                         <button className="w3-button w3-black w3-round " style={{height: "40px",  minHeight: "40px"}}   type="submit">Book Now </button>
-                      </Link>
-                      <GooglePay totalPrice={selectedPackage.price}/>
-                    </div>
-                  </>
-                  )}     
+
+                    
                 </div>
               </form>
             </div>

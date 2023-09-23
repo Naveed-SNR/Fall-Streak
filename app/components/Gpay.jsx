@@ -1,3 +1,4 @@
+//This component maybe required in future after deployment to implment UPI payment (Google requires the website to be verified and you need to provide the url of your website for that. This is only possible after deployment)
 import GooglePayButton from "@google-pay/button-react"
 
 export default function GooglePay() {
@@ -10,16 +11,11 @@ export default function GooglePay() {
     apiVersionMinor: 0,
     allowedPaymentMethods: [
       {
-        type: 'CARD',
-        parameters: {
-          allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-          allowedCardNetworks: ['MASTERCARD', 'VISA'],
-        },
+        type: 'UPI',
         tokenizationSpecification: {
-          type: 'PAYMENT_GATEWAY',
+          type: 'DIRECT',
           parameters: {
-            gateway: 'example',
-            gatewayMerchantId: 'exampleGatewayMerchantId',
+            payeeAddress: 'your_upi_address@example.com', // Replace with your UPI address
           },
         },
       },
