@@ -1,24 +1,22 @@
-// api/create-payment-intent.js
+import Stripe from 'stripe';
+import { NextResponse, NextRequest } from 'next/server';
+const stripe = process.env.STRIPE_SECRET_KEY;
 
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    // Return a 405 response for non-POST requests
-    res.status(405).end();
-    return;
-  }
+export default async function POST(request) {
+      // Create Checkout Sessions from body params.
+      const{ price } = await request.json()
+      const session = await stripe.checkout.sessions.create({
+        line_items: [
+          {
+            price: price,
+            quantity: 1,
+          },
+        ],
+        mode: 'payment',
+        success_url: `http://localhost:3000`,
+        cancel_url: `${req.headers.origin}/?canceled=true`,
+      });
 
-  const { amount } = req.body;
-  const stripe = require('stripe')('STRIPE_SECRET_KEY');
-
-  try {
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount,
-      currency: 'usd', // Change to your currency
-    });
-    res.status(200).json({ clientSecret: paymentIntent.client_secret });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'An error occurred while creating a Payment Intent.' });
-  }
-}
+      return NextResponse.json(session.url);
+  } 
   
