@@ -25,6 +25,11 @@ const imagePaths = [
 export default function Packages() {
   const [packages, setPackages] = useState([]);
   const [selectedPackage, setSelectedPackage] = useState(null);
+  const [emailID, setEmailID] = useState('');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [packageName, setPackageName] = useState('');
+
   
 
   useEffect(() => {
@@ -48,25 +53,29 @@ export default function Packages() {
 
   const handleBookNowClick = (pkg) => {
     setSelectedPackage(pkg);
+    setPackageName(pkg.packageName);
     
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    // Gather form data
-    const formData = new FormData(e.target);
-    console.log(formData)
+    
+    
 
     try {
       // Send the form data to your backend API
       await fetch('/api/submit', {
         method:'POST',
-        body: JSON.stringify(formData),
         headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json'
-        }
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          packageName,
+          name,
+          phone,
+          emailID,
+        }),
       });
   
       window.location.href = selectedPackage.link;
@@ -123,11 +132,11 @@ export default function Packages() {
                   ))}
                 </select>
                 <label className="form-label mt-2" htmlFor="name">Name:</label>
-                <input className="form-control" type="text" id="name" name="name" required />
+                <input className="form-control" type="text" id="name" name="name" value={name} onChange={(e) => {setName(e.target.value)}} required />
                 <label className="form-label mt-2" htmlFor="phone">Phone Number:</label>
-                <input className="form-control" type="tel" id="phone" name="phone" required />
+                <input className="form-control" type="tel" id="phone" name="phone" value={phone} onChange={(e) => {setPhone(e.target.value)}}  required />
                 <label className="form-label mt-2" htmlFor="email">Email:</label>
-                <input className="form-control" type="email" id="email" name="email" required />
+                <input className="form-control" type="email" id="email" name="email" value={emailID} onChange={(e) => {setEmailID(e.target.value)}}  required />
                 <div className=" modal-footer justify-content-center">
                   
     
