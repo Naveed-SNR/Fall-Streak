@@ -1,14 +1,9 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import 'bootstrap';
 import { useState, useEffect } from "react";
 import { colRef } from "../../firebase";
 import { getDocs } from "firebase/firestore";
-import axios from "axios";
-import GooglePay from "../components/Gpay";
-import { stringify } from "postcss";
-
 
 const imagePaths = [
   '/images/packages/Packages1.webp',
@@ -29,8 +24,6 @@ export default function Packages() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [packageName, setPackageName] = useState('');
-
-  
 
   useEffect(() => {
     getDocs(colRef)
@@ -59,9 +52,6 @@ export default function Packages() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    
-    
 
     try {
       // Send the form data to your backend API
@@ -89,31 +79,28 @@ export default function Packages() {
       <div className="w3-container card-container w3-center w3-dark-grey" style={{ padding: '128px 16px' }} id="packages">
         <h3>PRICING</h3>
         <p className="w3-large">Choose a pricing plan that fits your needs.</p>
-
-        <div className="row mx-2 justify-content-center" style={{ marginTop: '64px' }}>
+        <div className="d-flex flex-wrap gap-4 mx-2 justify-content-center" style={{ marginTop: '64px' }}>
           {packages.map((pkg, index) => (
-            <div className="mt-4 w3-round" style={{ width: '481px' }} key={pkg.id}>
-              <ul className="w3-ul w3-white w3-hover-shadow">
-                <li className="w3-black w3-large w3-padding-24" style={{ border: 'none' }}>{pkg.packageName} ({pkg.duration})</li>
+            <div className="flex flex-shrink mt-4 w3-hover-shadow" style={{ width: '452px' }} key={pkg.id}>
+                <div className="w3-black w3-large p-4 ">{pkg.packageName} ({pkg.duration})</div>
                 <div style={{ width: '100%', height: '362px', position: 'relative' }}>
-                  <Image src={imagePaths[index]} alt="" className="img-fluid overflow-hidden aspect-ratio" fill sizes="100vw" />
+                  <Image src={imagePaths[index]} alt="" className="img-fluid overflow-hidden aspect-ratio" fill
+                  objectFit="cover" sizes="100vw" />
                 </div>
-                <li className="w3-padding-16">
+                <div className="w3-white p-4 border-bottom ">
                   <span>{pkg.locations}</span>
-                </li>
-                <li className="w3-padding-16">
+                </div>
+                <div className="w3-white p-4">
                   <h2 className="w3-wide">&#8377; {pkg.price}</h2>
                   <span className="w3-opacity">{pkg.chargeBasis}</span>
-                </li>
-                <li className="w3-light-grey w3-padding-16" style={{ borderRadius: '0' }}>
+                </div>
+                <div className="w3-light-grey w3-padding-16" style={{ borderRadius: '0' }}>
                   <button className="w3-button w3-black w3-padding-large w3-round book-now-button" data-bs-toggle="modal" data-bs-target="#popupform" onClick={() => handleBookNowClick(pkg)}>Book Now</button>
-                </li>
-              </ul>
+                </div>
             </div>
           ))}
         </div>
       </div>
-
       <div className="modal fade" id="popupform" tabIndex="-1" aria-labelledby="popupform Label" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
@@ -138,11 +125,7 @@ export default function Packages() {
                 <label className="form-label mt-2" htmlFor="email">Email:</label>
                 <input className="form-control" type="email" id="email" name="email" value={emailID} onChange={(e) => {setEmailID(e.target.value)}}  required />
                 <div className=" modal-footer justify-content-center">
-                  
-    
-                        <button className="w3-button w3-black w3-round " style={{height: "40px",  minHeight: "40px"}}   type="submit">Book Now </button>
-
-                    
+                  <button className="w3-button w3-black w3-round " style={{height: "40px",  minHeight: "40px"}}   type="submit">Book Now </button>
                 </div>
               </form>
             </div>

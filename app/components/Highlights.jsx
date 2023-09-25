@@ -18,21 +18,15 @@ export default function Highlights() {
       <p className="w3-center w3-large">Take a peek at the paradise on earth</p>
       <div className="d-flex flex-wrap justify-content-center" style={{ marginTop: '64px' }}>
         {imagePaths.map((imagePath, index) => (
-
-
               <div className="mx-1 mt-3" style={{ width: '362px', height: '481px', position: 'relative'}} key={index}>
-              <Image
-                src={`${imagePath}`} // Adjust the path to your images
-                className="img-fluid w3-round"
-                alt={`Image ${index}`}
-                fill
-                objectFit="fit"
-                sizes="100vw"
-              />
+                <Image className="w3-round"
+                  alt={`Image ${index}`}
+                  src={`${imagePath}`} 
+                  fill
+                  objectFit="fit"
+                  sizes="100vw"
+                />
               </div>
-
-
-
         ))}
       </div>
       <div className="mt-4">
@@ -41,8 +35,7 @@ export default function Highlights() {
           <FontAwesomeIcon className="me-1" icon={faGrip} size="lg" /> View All
           </Link>
         </p>
-      </div>
-      
+      </div> 
     </div>
   );
 }

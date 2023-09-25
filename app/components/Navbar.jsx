@@ -37,7 +37,7 @@ export default function Navbar() {
       <nav className="w3-top w3-card">
                  
         <div className="w3-bar">
-        <Link href="/#home" className="w3-bar-item w3-wide">
+        <Link href="/" className="w3-bar-item w3-wide">
             <Image
               className="animate"
               src={Logo}

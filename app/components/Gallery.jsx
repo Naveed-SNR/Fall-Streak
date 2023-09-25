@@ -3,8 +3,6 @@ import images from "../../images";
 import Link from 'next/link'
 
 export default function Gallery() {
-
-
   return (
     <>
       <div className="w3-container w3-light-grey" style={{ padding: '128px 16px' }} id="gallery">
