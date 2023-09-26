@@ -82,9 +82,9 @@ export default function Packages() {
         <div className="d-flex flex-wrap gap-4 mx-2 justify-content-center" style={{ marginTop: '64px' }}>
           {packages.map((pkg, index) => (
             <div className="flex flex-shrink mt-4 w3-hover-shadow" style={{ width: '452px' }} key={pkg.id}>
-                <div className="w3-black w3-large p-4 ">{pkg.packageName} ({pkg.duration})</div>
+                <div className="w3-black w3-large p-4 rounded-top">{pkg.packageName} ({pkg.duration})</div>
                 <div style={{ width: '100%', height: '362px', position: 'relative' }}>
-                  <Image src={imagePaths[index]} alt="" className="img-fluid overflow-hidden aspect-ratio" fill
+                  <Image src={imagePaths[index]} alt="Package Image" fill
                   objectFit="cover" sizes="100vw" />
                 </div>
                 <div className="w3-white p-4 border-bottom ">
@@ -94,7 +94,7 @@ export default function Packages() {
                   <h2 className="w3-wide">&#8377; {pkg.price}</h2>
                   <span className="w3-opacity">{pkg.chargeBasis}</span>
                 </div>
-                <div className="w3-light-grey w3-padding-16" style={{ borderRadius: '0' }}>
+                <div className="w3-light-grey w3-padding-16 rounded-bottom" style={{ borderRadius: '0' }}>
                   <button className="w3-button w3-black w3-padding-large w3-round book-now-button" data-bs-toggle="modal" data-bs-target="#popupform" onClick={() => handleBookNowClick(pkg)}>Book Now</button>
                 </div>
             </div>
