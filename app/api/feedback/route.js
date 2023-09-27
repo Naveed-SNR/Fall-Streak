@@ -20,11 +20,9 @@ try {
     from: email,
     to: email,
     subject: 'Message from customer',
-    html: `
-        
-          
+    html: `  
             <div style="border: 1px solid grey; border-radius: 8.3px;">
-              <div style="background-color: black; color: white; padding: 11px; margin-top: 11px; border-bottom: 1px solid grey">
+              <div style="background-color: black; color: white; padding: 11px; margin-top: 11px; border-bottom: 1px solid greyz">
                 <h1 style="display: inline; font-size: 30px; font-family: Arial;">Fall Streak</h1><br><br><h2 style ="display: inline; font-family: Arial; font-size: 21px; font-weight: 400;">Message from customer</h2>
               </div>
               <div style="padding: 4px; margin: 11px;">
@@ -40,7 +38,6 @@ try {
                 <h2 style ="display: inline; font-family: Arial; font-size: 21px; font-weight: 542;">Message:</h2><h2 style ="display: inline; font-size: 21px; font-weight:308; font-family: Arial;"> ${message}</h2>
               </div>
             </div>
-        
     `
   };
     

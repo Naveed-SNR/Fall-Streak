@@ -24,6 +24,7 @@ export default function Packages() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [packageName, setPackageName] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     getDocs(colRef)
@@ -55,6 +56,7 @@ export default function Packages() {
 
     try {
       // Send the form data to your backend API
+      setIsLoading(true);
       await fetch('/api/submit', {
         method:'POST',
         headers: {
@@ -68,6 +70,7 @@ export default function Packages() {
         }),
       });
   
+      setIsLoading(false);
       window.location.href = selectedPackage.link;
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -124,8 +127,14 @@ export default function Packages() {
                 <input className="form-control" type="tel" id="phone" name="phone" value={phone} onChange={(e) => {setPhone(e.target.value)}}  required />
                 <label className="form-label mt-2" htmlFor="email">Email:</label>
                 <input className="form-control" type="email" id="email" name="email" value={emailID} onChange={(e) => {setEmailID(e.target.value)}}  required />
-                <div className=" modal-footer justify-content-center">
-                  <button className="w3-button w3-black w3-round " style={{height: "40px",  minHeight: "40px"}}   type="submit">Book Now </button>
+                <div className=" modal-footer justify-content-center mt-4 border-0">
+                  <button className="btn w3-black" style={{width: "111px", height: "40px",  minHeight: "40px"}}   type="submit">  {isLoading ? (
+                                    <div className="spinner-border spinner-border-sm text-light" role="status">
+                                      <span className="visually-hidden">Loading...</span>
+                                    </div>
+                                    ) : `Book Now`
+                                    }
+                  </button>
                 </div>
               </form>
             </div>

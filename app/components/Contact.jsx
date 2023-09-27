@@ -9,11 +9,14 @@ export default function Contact () {
   const [emailID, setEmailID] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       // Send the form data to your backend API
+      setIsLoading(true);
+
       await fetch('/api/feedback', {
         method:'POST',
         headers: {
@@ -26,6 +29,9 @@ export default function Contact () {
           message,
         }),
       });
+
+      setIsLoading(false);
+      
     } catch (error) {
       console.error('Error submitting form:', error);
     }
@@ -40,13 +46,23 @@ export default function Contact () {
         <p><FontAwesomeIcon className="me-3" icon={faEnvelope} size="2xl" /> Email: mail@mail.com</p>
         <br />
         <form action="/action_page.php" target="_blank" onSubmit={handleSubmit}>
-          <p><input className="w3-input w3-border" type="text" placeholder="Name" required name="Name" value={name} onChange={(e) => {setName(e.target.value)}} /></p>
-          <p><input className="w3-input w3-border" type="text" placeholder="Email" required name="Email" value={emailID} onChange={(e) => {setEmailID(e.target.value)}} /></p>
-          <p><input className="w3-input w3-border" type="text" placeholder="Subject" required name="Subject" value={subject} onChange={(e) => {setSubject(e.target.value)}} /></p>
-          <p><input className="w3-input w3-border" type="text" placeholder="Message" required name="Message" value={message} onChange={(e) => {setMessage(e.target.value)}} /></p>
+          <p><input className="form-control" type="text" placeholder="Name" required name="Name" value={name} onChange={(e) => {setName(e.target.value)}} /></p>
+          <p><input className="form-control" type="text" placeholder="Email" required name="Email" value={emailID} onChange={(e) => {setEmailID(e.target.value)}} /></p>
+          <p><input className="form-control" type="text" placeholder="Subject" required name="Subject" value={subject} onChange={(e) => {setSubject(e.target.value)}} /></p>
+          <p><input className="form-control" type="text" placeholder="Message" required name="Message" value={message} onChange={(e) => {setMessage(e.target.value)}} /></p>
           <p>
-            <button className="w3-button w3-black w3-round" type="submit">
-            <FontAwesomeIcon className="me-2" icon={faPaperPlane} size="xl" /> SEND MESSAGE
+            <button className="w3-button w3-black w3-round" style={{width: "182px"}} type="submit">
+            {isLoading ? (
+              <>
+                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                <span class="visually-hidden" role="status">Loading...</span>
+              </>
+              ) : (
+                 <>
+                  <FontAwesomeIcon className="me-2" icon={faPaperPlane} size="xl" /> 
+                    SEND MESSAGE
+                   </>
+                    )}
             </button>
           </p>
         </form>
