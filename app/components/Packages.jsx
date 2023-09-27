@@ -48,7 +48,6 @@ export default function Packages() {
   const handleBookNowClick = (pkg) => {
     setSelectedPackage(pkg);
     setPackageName(pkg.packageName);
-    
   };
 
   const handleSubmit = async (e) => {
@@ -58,7 +57,7 @@ export default function Packages() {
       // Send the form data to your backend API
       setIsLoading(true);
       await fetch('/api/submit', {
-        method:'POST',
+        method: 'POST',
         headers: {
           'content-type': 'application/json',
         },
@@ -69,14 +68,14 @@ export default function Packages() {
           emailID,
         }),
       });
-  
+
       setIsLoading(false);
       window.location.href = selectedPackage.link;
     } catch (error) {
       console.error('Error submitting form:', error);
     }
   };
- 
+
   return (
     <div>
       <div className="w3-container card-container w3-center w3-dark-grey" style={{ padding: '128px 16px' }} id="packages">
@@ -85,21 +84,20 @@ export default function Packages() {
         <div className="d-flex flex-wrap gap-4 mx-2 justify-content-center" style={{ marginTop: '64px' }}>
           {packages.map((pkg, index) => (
             <div className="flex flex-shrink mt-4 w3-hover-shadow" style={{ width: '452px' }} key={pkg.id}>
-                <div className="w3-black w3-large p-4 rounded-top">{pkg.packageName} ({pkg.duration})</div>
-                <div style={{ width: '100%', height: '362px', position: 'relative' }}>
-                  <Image src={imagePaths[index]} alt="Package Image" fill
-                  objectFit="cover" sizes="100vw" />
-                </div>
-                <div className="w3-white p-4 border-bottom ">
-                  <span>{pkg.locations}</span>
-                </div>
-                <div className="w3-white p-4">
-                  <h2 className="w3-wide">&#8377; {pkg.price}</h2>
-                  <span className="w3-opacity">{pkg.chargeBasis}</span>
-                </div>
-                <div className="w3-light-grey w3-padding-16 rounded-bottom" style={{ borderRadius: '0' }}>
-                  <button className="w3-button w3-black w3-padding-large w3-round book-now-button" data-bs-toggle="modal" data-bs-target="#popupform" onClick={() => handleBookNowClick(pkg)}>Book Now</button>
-                </div>
+              <div className="w3-black w3-large p-4 rounded-top">{pkg.packageName} ({pkg.duration})</div>
+              <div style={{ width: '100%', height: '362px', position: 'relative' }}>
+                <Image src={imagePaths[index]} alt="Package Image" fill objectFit="cover" sizes="100vw" />
+              </div>
+              <div className="w3-white p-4 border-bottom ">
+                <span>{pkg.locations}</span>
+              </div>
+              <div className="w3-white p-4">
+                <h2 className="w3-wide">&#8377; {pkg.price}</h2>
+                <span className="w3-opacity">{pkg.chargeBasis}</span>
+              </div>
+              <div className="w3-light-grey w3-padding-16 rounded-bottom" style={{ borderRadius: '0' }}>
+                <button className="w3-button w3-black w3-padding-large w3-round book-now-button" data-bs-toggle="modal" data-bs-target="#popupform" onClick={() => handleBookNowClick(pkg)}>Book Now</button>
+              </div>
             </div>
           ))}
         </div>
@@ -122,18 +120,19 @@ export default function Packages() {
                   ))}
                 </select>
                 <label className="form-label mt-2" htmlFor="name">Name:</label>
-                <input className="form-control" type="text" id="name" name="name" value={name} onChange={(e) => {setName(e.target.value)}} required />
+                <input className="form-control" type="text" id="name" name="name" value={name} onChange={(e) => { setName(e.target.value) }} required />
                 <label className="form-label mt-2" htmlFor="phone">Phone Number:</label>
-                <input className="form-control" type="tel" id="phone" name="phone" value={phone} onChange={(e) => {setPhone(e.target.value)}}  required />
+                <input className="form-control" type="tel" id="phone" name="phone" value={phone} onChange={(e) => { setPhone(e.target.value) }} required />
                 <label className="form-label mt-2" htmlFor="email">Email:</label>
-                <input className="form-control" type="email" id="email" name="email" value={emailID} onChange={(e) => {setEmailID(e.target.value)}}  required />
+                <input className="form-control" type="email" id="email" name="email" value={emailID} onChange={(e) => { setEmailID(e.target.value) }} required />
                 <div className=" modal-footer justify-content-center mt-4 border-0">
-                  <button className="btn w3-black" style={{width: "111px", height: "40px",  minHeight: "40px"}}   type="submit">  {isLoading ? (
-                                    <div className="spinner-border spinner-border-sm text-light" role="status">
-                                      <span className="visually-hidden">Loading...</span>
-                                    </div>
-                                    ) : `Book Now`
-                                    }
+                  <button className="btn w3-black" style={{ width: "111px", height: "40px", minHeight: "40px" }} type="submit">
+                    {isLoading ? (
+                      <div className="spinner-border spinner-border-sm text-light" role="status">
+                        <span className="visually-impaired">Loading...</span>
+                      </div>
+                    ) : `Book Now`
+                    }
                   </button>
                 </div>
               </form>

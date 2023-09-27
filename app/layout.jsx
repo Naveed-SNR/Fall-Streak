@@ -4,6 +4,8 @@ import './styles/w3.css'
 import { REM } from 'next/font/google'
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 config.autoAddCss = false;
 
 //components
@@ -24,6 +26,21 @@ export default function RootLayout({ children }) {
       <body className={rem.className}>   
         <Navbar />
         {children}
+        <ToastContainer
+          position="bottom-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          className={"w3-black"}
+          progressClassName={"bg-light"}
+          icon ="☑️"
+          theme="dark"
+        /> {/* Auto close after 3 seconds */}
         <Footer />
       </body>
       
