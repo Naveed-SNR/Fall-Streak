@@ -28,7 +28,7 @@ export default function landing () {
                 <span className="w3-xxlarge">Craft Unforgettable Memories In Kashmir</span>
                 <p><Link href="/#packages" className="w3-button w3-white w3-round w3-large      w3-margin-top w3-hover-opacity-off">Book Your Trip</Link></p>
             </div>
-            <div className="w3-display-bottomleft ms-3 mb-4 me-2 d-flex w3-text-white w3-large" style={{ width: '11', padding: '48px', justifyContent:  'space-between' }}>
+            <div className="w3-display-bottomleft ms-4 mb-4 me-2 d-flex  p-4 justify-content-between w3-text-white w3-large">
               <Link href="https://wa.me/9149969998" className="w3-hover-opacity" aria-label="social">
                 <FontAwesomeIcon icon={faWhatsapp} className="p-1 py-2"/>
               </Link>
@@ -38,15 +38,6 @@ export default function landing () {
               <Link href="https://www.facebook.com/hamidbashir.bashirsofi" className="w3-hover-opacity" aria-label="social">
                 <FontAwesomeIcon icon={faFacebookSquare} className="p-1 py-2"/>
               </Link>
-              {/* <Link href="#" className="w3-hover-opacity" aria-label="social">
-                <FontAwesomeIcon icon={faPinterestP} className="p-1 py-2"/>
-              </Link>
-              <Link href="#" className="w3-hover-opacity" aria-label="social">
-                <FontAwesomeIcon icon={faTwitter} className="p-1 py-2"/>
-              </Link>
-              <Link href="#" className="w3-hover-opacity" aria-label="social">
-                <FontAwesomeIcon icon={faLinkedin} className="p-1 py-2"/>
-              </Link> */}
             </div>
       </header>
     )
