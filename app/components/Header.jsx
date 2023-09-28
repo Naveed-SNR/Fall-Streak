@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebookSquare, faInstagram, faSnapchat, faPinterestP, faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faFacebookSquare, faInstagram, faSnapchat, faWhatsapp, faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import background from "../../public/images/background/background.webp";
 import Image from "next/image";
 
@@ -29,16 +29,16 @@ export default function landing () {
                 <p><Link href="/#packages" className="w3-button w3-white w3-round w3-large      w3-margin-top w3-hover-opacity-off">Book Your Trip</Link></p>
             </div>
             <div className="w3-display-bottomleft ms-3 mb-4 me-2 d-flex w3-text-white w3-large" style={{ width: '11', padding: '48px', justifyContent:  'space-between' }}>
-              <Link href="#" className="w3-hover-opacity" aria-label="social">
-                <FontAwesomeIcon icon={faFacebookSquare} className="p-1 py-2"/>
+              <Link href="https://wa.me/9149969998" className="w3-hover-opacity" aria-label="social">
+                <FontAwesomeIcon icon={faWhatsapp} className="p-1 py-2"/>
               </Link>
-              <Link href="#" className="w3-hover-opacity" aria-label="social">
+              <Link href="https://www.instagram.com/sofiham_id/" className="w3-hover-opacity" aria-label="social">
                 <FontAwesomeIcon icon={faInstagram} className="p-1 py-2"/>
               </Link>
-              <Link href="#" className="w3-hover-opacity" aria-label="social">
-                <FontAwesomeIcon icon={faSnapchat} className="p-1 py-2"/>
+              <Link href="https://www.facebook.com/hamidbashir.bashirsofi" className="w3-hover-opacity" aria-label="social">
+                <FontAwesomeIcon icon={faFacebookSquare} className="p-1 py-2"/>
               </Link>
-              <Link href="#" className="w3-hover-opacity" aria-label="social">
+              {/* <Link href="#" className="w3-hover-opacity" aria-label="social">
                 <FontAwesomeIcon icon={faPinterestP} className="p-1 py-2"/>
               </Link>
               <Link href="#" className="w3-hover-opacity" aria-label="social">
@@ -46,7 +46,7 @@ export default function landing () {
               </Link>
               <Link href="#" className="w3-hover-opacity" aria-label="social">
                 <FontAwesomeIcon icon={faLinkedin} className="p-1 py-2"/>
-              </Link>
+              </Link> */}
             </div>
       </header>
     )

@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp} from "@fortawesome/free-solid-svg-icons";
-import { faFacebookSquare, faInstagram, faSnapchat, faPinterestP, faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faFacebookSquare, faInstagram, faWhatsapp, faSnapchat, faPinterestP, faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 
 const Footer = () => {
@@ -20,24 +20,15 @@ const Footer = () => {
         <FontAwesomeIcon icon={faArrowUp} className="w3-margin-right" /> To the top
       </button>
       <div className="w3-xlarge w3-section">
-        <Link href="#" className="w3-hover-opacity" aria-label="social">
-          <FontAwesomeIcon icon={faFacebookSquare} className="p-1 py-2"/>
-        </Link>
-        <Link href="#" className="w3-hover-opacity" aria-label="social">
-          <FontAwesomeIcon icon={faInstagram} className="p-1 py-2"/>
-        </Link>
-        <Link href="#" className="w3-hover-opacity" aria-label="social">
-          <FontAwesomeIcon icon={faSnapchat} className="p-1 py-2"/>
-        </Link>
-        <Link href="#" className="w3-hover-opacity" aria-label="social">
-          <FontAwesomeIcon icon={faPinterestP} className="p-1 py-2"/>
-        </Link>
-        <Link href="#" className="w3-hover-opacity" aria-label="social">
-          <FontAwesomeIcon icon={faTwitter} className="p-1 py-2"/>
-        </Link>
-        <Link href="#" className="w3-hover-opacity" aria-label="social">
-          <FontAwesomeIcon icon={faLinkedin} className="p-1 py-2"/>
-        </Link>
+      <Link href="https://wa.me/9149969998" className="w3-hover-opacity" aria-label="social">
+        <FontAwesomeIcon icon={faWhatsapp} className="p-1 py-2"/>
+      </Link>
+      <Link href="https://www.instagram.com/sofiham_id/" className="w3-hover-opacity" aria-label="social">
+        <FontAwesomeIcon icon={faInstagram} className="p-1 py-2"/>
+      </Link>
+      <Link href="https://www.facebook.com/hamidbashir.bashirsofi" className="w3-hover-opacity" aria-label="social">
+        <FontAwesomeIcon icon={faFacebookSquare} className="p-1 py-2"/>
+      </Link>
       </div>
       <p className="w3-small">Copyright © 2023 FallStreak. Made by Naveed SNR</p>
       <Link
