@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import 'bootstrap';
 import { useState, useEffect } from "react";
 import { colRef } from "../../firebase";
@@ -107,9 +108,9 @@ export default function Packages() {
           <div className="modal-content">
             <div className="modal-header bg-black text-white">
               <h1 className="modal-title fs-4 mb-1" id="exampleModalLabel">Book Your Package</h1>
-              <button type="button" className="w3-black w3-border-0" data-bs-dismiss="modal" aria-label="Close">X</button>
+              <button type="button" className="w3-black w3-border-0" data-bs-target="#popupform" data-bs-dismiss="modal" aria-label="Close">X</button>
             </div>
-            <div className="modal-body">
+            <div className="modal-body mx-4">
               <form id="booking-form" className="form m-4" onSubmit={handleSubmit}>
                 <label className="form-label mt-2" htmlFor="package-select">Select a Package:</label>
                 <select className="form-select" id="package-select" name="package" value={selectedPackage ? selectedPackage.packageName : ''} onChange={(e) => setSelectedPackage(packages.find(pkg => pkg.packageName === e.target.value))}>
@@ -125,15 +126,18 @@ export default function Packages() {
                 <input className="form-control" type="tel" id="phone" name="phone" value={phone} onChange={(e) => { setPhone(e.target.value) }} required />
                 <label className="form-label mt-2" htmlFor="email">Email:</label>
                 <input className="form-control" type="email" id="email" name="email" value={emailID} onChange={(e) => { setEmailID(e.target.value) }} required />
-                <div className=" modal-footer justify-content-center mt-4 border-0">
-                  <button className="btn w3-black" style={{ width: "111px", height: "40px", minHeight: "40px" }} type="submit">
+                <div className="d-grid justify-content-center mt-4 border-0">
+                  <button className="btn btn-block w3-black" style={{ height: "40px", minHeight: "40px" }} type="submit">
                     {isLoading ? (
                       <div className="spinner-border spinner-border-sm text-light" role="status">
                         <span className="visually-impaired">Loading...</span>
                       </div>
-                    ) : `Book Now`
+                    ) : `Proceed to checkout`
                     }
                   </button>
+                  <p className="fw-light mt-4" style={{ fontSize: "11px" }}>For UPI payments, custom packages, etc. Contact us on <Link href="https://wa.me/9149969998" className="w3-hover-opacity" aria-label="social">WhatsApp
+                  </Link> or use the <Link href="/#contact" data-bs-target="popupform" data-bs-dismiss="modal" className="w3-hover-opacity" aria-label="social">Contact Form.
+                  </Link></p>
                 </div>
               </form>
             </div>
