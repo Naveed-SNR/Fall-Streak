@@ -30,15 +30,8 @@ const Footer = () => {
         <FontAwesomeIcon icon={faFacebookSquare} className="p-1 py-2"/>
       </Link>
       </div>
-      <p className="w3-small">Copyright © 2023 FallStreak. Made by Naveed SNR</p>
-      <Link
-        className="w3-button w3-round-xxlarge w3-small w3-light-grey w3-margin-bottom"
-        href="https://www.w3schools.com/spaces"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Start now
-      </Link>
+      <p className="w3-small">Copyright © 2023 FallStreak. Made by <Link href="https://github.com/Naveed-SNR">Naveed SNR</Link></p>
+
     </footer>
   );
 };
