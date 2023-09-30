@@ -42,7 +42,7 @@ export default function Contact() {
   return (
     <div className="w3-container w3-light-grey" style={{ padding: '128px 16px' }} id="contact">
       <h3 className="w3-center">CONTACT</h3>
-      <p className="w3-center w3-large">Let's get in touch. Send us a message:</p>
+      <p className="w3-center w3-large">{`Let's get in touch. Send us a message:`}</p>
       <div style={{ marginTop: '48px' }}>
         <p><FontAwesomeIcon className="me-3" icon={faLocationDot} size="2xl" /> Srinagar, IN</p>
         <p><FontAwesomeIcon className="me-3" icon={faPhone} size="2xl" /> Phone: +91 9149969998</p>

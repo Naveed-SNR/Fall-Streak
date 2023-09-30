@@ -11,7 +11,7 @@ export default function About() {
           <FontAwesomeIcon icon={faDesktop} className="w3-margin-bottom w3-jumbo w3-center" />
           <div className="mt-4">
             <p className="w3-large">Discover FallStreak</p>
-            <p>We pride ourselves on being more than just a travel platform - we're your partners in creating unforgettable memories.</p>
+            <p>{`We pride ourselves on being more than just a travel platform - we're your partners in creating unforgettable memories.`}</p>
           </div>
         </div>
         <div className="col-lg-3 col-md-6 w3-center">
