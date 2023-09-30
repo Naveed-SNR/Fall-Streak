@@ -81,7 +81,7 @@ export default function Packages() {
     <div>
       <div className="w3-container card-container w3-center w3-dark-grey" style={{ padding: '128px 16px' }} id="packages">
         <h3>PRICING</h3>
-        <p className="w3-large">Choose a pricing plan that fits your needs.</p>
+        <p className="w3-large">Choose a package that fits your needs.</p>
         <div className="d-flex flex-wrap gap-4 mx-2 justify-content-center" style={{ marginTop: '64px' }}>
           {packages.map((pkg, index) => (
             <div className="flex flex-shrink mt-4 w3-hover-shadow" style={{ width: '452px' }} key={pkg.id}>
@@ -130,7 +130,7 @@ export default function Packages() {
                   <button className="btn btn-block w3-black" style={{ height: "40px", minHeight: "40px" }} type="submit">
                     {isLoading ? (
                       <div className="spinner-border spinner-border-sm text-light" role="status">
-                        <span className="visually-hidden">Loading...</span>
+                        <span className="visually-hidden ">Loading...</span>
                       </div>
                     ) : `Proceed to checkout`
                     }
