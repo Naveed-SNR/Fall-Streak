@@ -45,8 +45,8 @@ export default function Contact() {
       <p className="w3-center w3-large">Let's get in touch. Send us a message:</p>
       <div style={{ marginTop: '48px' }}>
         <p><FontAwesomeIcon className="me-3" icon={faLocationDot} size="2xl" /> Srinagar, IN</p>
-        <p><FontAwesomeIcon className="me-3" icon={faPhone} size="2xl" /> Phone: +00 151515</p>
-        <p><FontAwesomeIcon className="me-3" icon={faEnvelope} size="2xl" /> Email: mail@mail.com</p>
+        <p><FontAwesomeIcon className="me-3" icon={faPhone} size="2xl" /> Phone: +91 9149969998</p>
+        <p><FontAwesomeIcon className="me-3" icon={faEnvelope} size="2xl" /> Email: fallstreaktourandtravels@gmail.com</p>
         <br />
         <form target="_blank" onSubmit={handleSubmit}>
           <p><input className="form-control" type="text" placeholder="Name" required name="Name" value={name} onChange={(e) => { setName(e.target.value) }} /></p>

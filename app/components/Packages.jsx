@@ -130,7 +130,7 @@ export default function Packages() {
                   <button className="btn btn-block w3-black" style={{ height: "40px", minHeight: "40px" }} type="submit">
                     {isLoading ? (
                       <div className="spinner-border spinner-border-sm text-light" role="status">
-                        <span className="visually-impaired">Loading...</span>
+                        <span className="visually-hidden">Loading...</span>
                       </div>
                     ) : `Proceed to checkout`
                     }
