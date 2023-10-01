@@ -71,7 +71,7 @@ export default function Gallery() {
           ))}
         </div>
       </div>
-      {/* <div className="modal fade" id="imageModal" tabIndex="-1" aria-labelledby="imageModal Label" aria-hidden="true">
+      <div className="modal fade" id="imageModal" tabIndex="-1" aria-labelledby="imageModal Label" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header w3-black w3-border-0">
@@ -91,7 +91,7 @@ export default function Gallery() {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 }
