@@ -26,7 +26,10 @@ export default function Navbar() {
 
   const handleClick = () => {
 
-    setActiveLink(currentPath + window.location.hash)
+    if (typeof window !== "undefined") 
+        {
+          setActiveLink(currentPath + window.location.hash)
+        }
     console.log(activeLink)
     console.log(currentPath)
    
