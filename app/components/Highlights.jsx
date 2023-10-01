@@ -23,7 +23,7 @@ export default function Highlights() {
                   alt={`Image ${index}`}
                   src={`${imagePath}`} 
                   fill
-                  objectFit="fit"
+                  objectFit="cover"
                   sizes="100vw"
                 />
               </div>

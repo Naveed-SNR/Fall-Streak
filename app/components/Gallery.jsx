@@ -1,8 +1,8 @@
 "use client"
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import images from "../../images";
-import 'bootstrap'
+
 
 // const images = [
 //   {
@@ -41,6 +41,9 @@ import 'bootstrap'
 // ];
 
 export default function Gallery() {
+  useEffect(() => {
+    require("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
   
   const [fullImagePath, setFullImagePath] = useState('');
   

@@ -6,7 +6,7 @@ export default function About() {
     <div className="w3-container" style={{ padding: '128px 16px' }} id="about">
       <h3 className="w3-center">ABOUT</h3>
       <p className="w3-center w3-large ">Why FallStreak is the ultimate choice for your next adventure</p>
-      <div className="row" style={{ marginTop: '83px' }}>
+      <div className="d-flex flex-wrap" style={{ marginTop: '83px' }}>
         <div className="col-lg-3 col-md-6 w3-center">
           <FontAwesomeIcon icon={faDesktop} className="w3-margin-bottom w3-jumbo w3-center" />
           <div className="mt-4">

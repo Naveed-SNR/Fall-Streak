@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp} from "@fortawesome/free-solid-svg-icons";
-import { faFacebookSquare, faInstagram, faWhatsapp, faSnapchat, faPinterestP, faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faWhatsapp, faInstagram, faFacebookSquare} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   // Function to scroll to the top of the page
@@ -20,16 +20,16 @@ const Footer = () => {
       </button>
       <div className="w3-xlarge w3-section">
       <Link href="https://wa.me/9149969998" className="w3-hover-opacity" aria-label="social">
-        <FontAwesomeIcon icon={faWhatsapp} className="p-1 py-2"/>
+        <FontAwesomeIcon icon={faWhatsapp} size="lg" className="me-2 p-1 py-2"/>
       </Link>
       <Link href="https://www.instagram.com/sofiham_id/" className="w3-hover-opacity" aria-label="social">
-        <FontAwesomeIcon icon={faInstagram} className="p-1 py-2"/>
+        <FontAwesomeIcon icon={faInstagram} size="lg" className="me-2 p-1 py-2"/>
       </Link>
       <Link href="https://www.facebook.com/hamidbashir.bashirsofi" className="w3-hover-opacity" aria-label="social">
-        <FontAwesomeIcon icon={faFacebookSquare} className="p-1 py-2"/>
+        <FontAwesomeIcon icon={faFacebookSquare} size="lg" className="me-2 p-1 py-2"/>
       </Link>
       </div>
-      <p className="w3-small">Copyright © 2023 FallStreak. Made by <Link href="https://github.com/Naveed-SNR">Naveed SNR</Link></p>
+      <p className="w3-small">Copyright © 2023 FallStreak. Developed by <Link href="https://github.com/Naveed-SNR">Naveed SNR</Link></p>
 
     </footer>
   );
