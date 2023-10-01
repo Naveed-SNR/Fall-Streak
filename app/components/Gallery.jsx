@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import images from "../../images";
 import 'bootstrap'
 
@@ -45,7 +45,9 @@ export default function Gallery() {
   const [fullImagePath, setFullImagePath] = useState('');
   
   const handleClick = (image) => {
-    setFullImagePath(image.imagePath);
+    useEffect(() => {
+      setFullImagePath(image.imagePath);
+    }, []);
   
   }
   return (
@@ -98,5 +100,4 @@ export default function Gallery() {
 
 
         
-
 

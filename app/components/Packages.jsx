@@ -71,7 +71,11 @@ export default function Packages() {
       });
 
       setIsLoading(false);
-      window.location.href = selectedPackage.link;
+      const scrollToTop = () => {
+        if (typeof window !== "undefined") 
+        window.location.href = selectedPackage.link;
+      };
+      
     } catch (error) {
       console.error('Error submitting form:', error);
     }

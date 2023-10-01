@@ -1,4 +1,3 @@
-"use client"
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp} from "@fortawesome/free-solid-svg-icons";
@@ -8,7 +7,7 @@ import { faFacebookSquare, faInstagram, faWhatsapp, faSnapchat, faPinterestP, fa
 const Footer = () => {
   // Function to scroll to the top of the page
   const scrollToTop = () => {
-    window.scrollTo({
+    if (typeof window !== "undefined") window.scrollTo({
       top: 0,
       behavior: 'smooth', // Add smooth scrolling behavior
     });
