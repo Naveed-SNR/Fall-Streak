@@ -15,9 +15,7 @@ export default function Contact() {
     e.preventDefault();
     try {
       // Send the form data to your backend API
-      useEffect(() => {
-        setIsLoading(true);
-      }, []);
+      setIsLoading(true);
 
       await fetch('/api/feedback', {
         method: 'POST',
@@ -31,9 +29,8 @@ export default function Contact() {
           message,
         }),
       });
-      useEffect(() => {
-        setIsLoading(false);
-      }, []);
+
+      setIsLoading(false);
       toast.success('Message sent successfully!');
 
     } catch (error) {

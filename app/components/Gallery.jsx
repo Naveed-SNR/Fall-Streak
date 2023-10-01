@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import images from "../../images";
 import 'bootstrap'
 
@@ -45,9 +45,7 @@ export default function Gallery() {
   const [fullImagePath, setFullImagePath] = useState('');
   
   const handleClick = (image) => {
-    useEffect(() => {
-      setFullImagePath(image.imagePath);
-    }, []);
+    setFullImagePath(image.imagePath);
   
   }
   return (
@@ -73,7 +71,7 @@ export default function Gallery() {
           ))}
         </div>
       </div>
-      <div className="modal fade" id="imageModal" tabIndex="-1" aria-labelledby="imageModal Label" aria-hidden="true">
+      {/* <div className="modal fade" id="imageModal" tabIndex="-1" aria-labelledby="imageModal Label" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header w3-black w3-border-0">
@@ -93,11 +91,12 @@ export default function Gallery() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
 
 
         
+
 

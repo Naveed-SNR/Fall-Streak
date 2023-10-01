@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {usePathname} from 'next/navigation'
@@ -19,23 +19,18 @@ export default function Navbar() {
   
 
   const toggleMenu=()=> {
-    useEffect(() => {
-      setOpen(!isOpen)
-      setSidebar(!sidebar)
-    }, []);
+    setOpen(!isOpen)
+    setSidebar(!sidebar)
 
   }
 
-  
-  
   const handleClick = () => {
-    
-    useEffect(() => {
-      setActiveLink(currentPath + window.location.hash)
-      console.log(activeLink)
-      console.log(currentPath) 
-    }, []);
-    }
+
+    setActiveLink(currentPath + window.location.hash)
+    console.log(activeLink)
+    console.log(currentPath)
+   
+  }
   return (
     
     <>  
