@@ -30,6 +30,10 @@ const images = [
     {
       id: 7,
       imagePath: '/images/gallery/Gallery8.webp',
+    },
+    {
+      id: 8,
+      imagePath: '/images/gallery/Gallery9.webp',
     }
     // Add more image file names as needed
   ];

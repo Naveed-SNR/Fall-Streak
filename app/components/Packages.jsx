@@ -11,9 +11,7 @@ const imagePaths = [
   '/images/packages/Packages3.webp',
   '/images/packages/Packages4.webp',
   '/images/packages/Packages5.webp',
-  '/images/packages/Packages1.webp',
-  '/images/packages/Packages2.webp',
-  '/images/packages/Packages3.webp',
+  '/images/packages/Packages6.webp',
   // Add more image file names as needed
 ];
 
