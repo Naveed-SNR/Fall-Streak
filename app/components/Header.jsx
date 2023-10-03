@@ -29,13 +29,13 @@ export default function landing () {
                 <p><Link href="/#packages" className="w3-button w3-white w3-round w3-large      w3-margin-top w3-hover-opacity-off">Book Your Trip</Link></p>
             </div>
             <div className="w3-display-bottomleft ms-4 mb-4 me-2 d-flex  p-4 justify-content-between w3-text-white w3-large">
-              <Link href="https://wa.me/9149969998" className="w3-hover-opacity" aria-label="social">
+              <Link href="https://wa.me/9149969998" className="w3-hover-opacity text-light" aria-label="social">
                 <FontAwesomeIcon icon={faWhatsapp} size="lg" className="me-2 p-1 py-2"/>
               </Link>
-              <Link href="https://www.instagram.com/sofiham_id/" className="w3-hover-opacity" aria-label="social">
+              <Link href="https://www.instagram.com/sofiham_id/" className="w3-hover-opacity text-light" aria-label="social">
                 <FontAwesomeIcon icon={faInstagram} size="lg" className="me-2 p-1 py-2"/>
               </Link>
-              <Link href="https://www.facebook.com/hamidbashir.bashirsofi" className="w3-hover-opacity" aria-label="social">
+              <Link href="https://www.facebook.com/hamidbashir.bashirsofi" className="w3-hover-opacity text-light" aria-label="social">
                 <FontAwesomeIcon icon={faFacebookSquare} size="lg" className="me-2 p-1 py-2"/>
               </Link>
             </div>

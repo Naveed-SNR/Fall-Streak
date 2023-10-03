@@ -19,17 +19,17 @@ const Footer = () => {
         <FontAwesomeIcon icon={faArrowUp} className="w3-margin-right" /> To the top
       </button>
       <div className="w3-xlarge w3-section">
-      <Link href="https://wa.me/9149969998" className="w3-hover-opacity" aria-label="social">
+      <Link href="https://wa.me/9149969998" className="w3-hover-opacity text-light" aria-label="social">
         <FontAwesomeIcon icon={faWhatsapp} size="lg" className="me-2 p-1 py-2"/>
       </Link>
-      <Link href="https://www.instagram.com/sofiham_id/" className="w3-hover-opacity" aria-label="social">
+      <Link href="https://www.instagram.com/sofiham_id/" className="w3-hover-opacity text-light" aria-label="social">
         <FontAwesomeIcon icon={faInstagram} size="lg" className="me-2 p-1 py-2"/>
       </Link>
-      <Link href="https://www.facebook.com/hamidbashir.bashirsofi" className="w3-hover-opacity" aria-label="social">
+      <Link href="https://www.facebook.com/hamidbashir.bashirsofi" className="w3-hover-opacity text-light" aria-label="social">
         <FontAwesomeIcon icon={faFacebookSquare} size="lg" className="me-2 p-1 py-2"/>
       </Link>
       </div>
-      <p className="w3-small">Copyright © 2023 FallStreak. Developed by <Link href="https://github.com/Naveed-SNR">Naveed SNR</Link></p>
+      <p className="w3-small">Copyright © 2023 FallStreak. Developed by <Link href="https://github.com/Naveed-SNR" className="w3-hover-opacity text-light">Naveed SNR</Link></p>
 
     </footer>
   );
