@@ -76,8 +76,6 @@ export default function Packages() {
         {
           window.location.href = selectedPackage.link;
         }
- 
-      
     } catch (error) {
       console.error('Error submitting form:', error);
     }
