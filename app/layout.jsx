@@ -15,8 +15,8 @@ import Footer from './components/Footer'
 const rem = REM({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'google-site-verification',
-  description: 'heBUz0ZuBiitsAuRlvgb2IFQbo_Jrf1JV7Zf4oStrdE',
+  title: 'Fall Streak',
+  description: 'Fall Streak travel website',
 }
 
 
