@@ -23,6 +23,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <title>Fall Streak</title>
+      </head>
       <body className={rem.className}>   
         <Navbar />
         {children}
