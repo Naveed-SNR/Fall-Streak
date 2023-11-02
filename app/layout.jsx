@@ -16,7 +16,7 @@ const rem = REM({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Fall Streak',
-  description: 'Fall Streak travel website',
+  description: 'Fall Streak',
 }
 
 
