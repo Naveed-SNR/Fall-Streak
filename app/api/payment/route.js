@@ -13,7 +13,7 @@ export default async function POST(request) {
           },
         ],
         mode: 'payment',
-        success_url: `http://localhost:3000`,
+        success_url: `http://www.fallstreak.in`,
         cancel_url: `${req.headers.origin}/?canceled=true`,
       });
 

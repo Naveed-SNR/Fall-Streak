@@ -44,7 +44,7 @@ export default function Navbar() {
             <Image
               className="animate"
               src={Logo}
-              alt="Logo"
+              alt="Fall Streak"
               width={111}
               position="fixed"
               top={0}
